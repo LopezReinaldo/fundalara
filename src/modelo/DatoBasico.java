@@ -1,6 +1,6 @@
 package modelo;
 
-// Generated 31/12/2011 11:02:01 AM by Hibernate Tools 3.4.0.CR1
+// Generated 25/01/2012 10:43:43 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,11 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -29,37 +26,45 @@ public class DatoBasico implements java.io.Serializable {
 	private String nombre;
 	private String descripcion;
 	private char estatus;
+	private Set<RetiroTraslado> retiroTrasladosForCodigoTipoOperacion = new HashSet<RetiroTraslado>(
+			0);
 	private Set<FamiliarJugador> familiarJugadors = new HashSet<FamiliarJugador>(
 			0);
-	private Set<TallaPorIndumentaria> tallaPorIndumentariasForCodigoIndumentaria = new HashSet<TallaPorIndumentaria>(
+	private Set<TallaPorIndumentaria> tallaPorIndumentariasForCodigoTipoUniforme = new HashSet<TallaPorIndumentaria>(
 			0);
-	private Set<PlanRotacion> planRotacions = new HashSet<PlanRotacion>(0);
 	private Set<EgresoFormaPago> egresoFormaPagosForCodigoTarjeta = new HashSet<EgresoFormaPago>(
 			0);
-	private TipoPagoRepresentante tipoPagoRepresentante;
 	private Set<Divisa> divisas = new HashSet<Divisa>(0);
-	private Set<Indicador> indicadorsForCodigoTipo = new HashSet<Indicador>(0);
+	private Set<Indicador> indicadorsForCodigoTipoIndicador = new HashSet<Indicador>(
+			0);
 	private Set<SolicitudMantenimiento> solicitudMantenimientos = new HashSet<SolicitudMantenimiento>(
 			0);
 	private Set<IndicadorActividadEscala> indicadorActividadEscalas = new HashSet<IndicadorActividadEscala>(
 			0);
-	private Set<ProveedorBanco> proveedorBancos = new HashSet<ProveedorBanco>(0);
-	private Set<RosterCompetencia> rosterCompetenciasForCodigoJugadorClave = new HashSet<RosterCompetencia>(
+	private Set<ProveedorBanco> proveedorBancosForCodigoBanco = new HashSet<ProveedorBanco>(
 			0);
-	private Set<IndicadorTest> indicadorTests = new HashSet<IndicadorTest>(0);
-	private Set<Persona> personas = new HashSet<Persona>(0);
+	private Set<Requisicion> requisicions = new HashSet<Requisicion>(0);
+	private Set<Indicador> indicadorsForCodigoMedicion = new HashSet<Indicador>(
+			0);
+	private Set<Persona> personasForCodigoParroquia = new HashSet<Persona>(0);
+	private Set<ProveedorBanco> proveedorBancosForCodigoTipoCuenta = new HashSet<ProveedorBanco>(
+			0);
 	private Set<PersonalContrato> personalContratosForCodigoHorario = new HashSet<PersonalContrato>(
 			0);
-	private Set<PersonalJuego> personalJuegos = new HashSet<PersonalJuego>(0);
+	private Set<ClasificacionCompetencia> clasificacionCompetencias = new HashSet<ClasificacionCompetencia>(
+			0);
 	private Set<Indicador> indicadorsForCodigoModalidad = new HashSet<Indicador>(
 			0);
-	private Set<Institucion> institucions = new HashSet<Institucion>(0);
+	private Set<Institucion> institucionsForCodigoTipoInstitucion = new HashSet<Institucion>(
+			0);
 	private Set<PersonalCargo> personalCargos = new HashSet<PersonalCargo>(0);
 	private Set<EstadoActividad> estadoActividads = new HashSet<EstadoActividad>(
 			0);
+	private Set<EgresoFormaPago> egresoFormaPagosForCodigoFormaPago = new HashSet<EgresoFormaPago>(
+			0);
 	private Set<Estadio> estadios = new HashSet<Estadio>(0);
-	private Set<Actividad> actividads = new HashSet<Actividad>(0);
-	private Set<JugadorForaneo> jugadorForaneos = new HashSet<JugadorForaneo>(0);
+	private Set<ComisionActividad> comisionActividads = new HashSet<ComisionActividad>(
+			0);
 	private Set<RecaudoPorProceso> recaudoPorProcesosForCodigoImportancia = new HashSet<RecaudoPorProceso>(
 			0);
 	private Set<CuentaPagar> cuentaPagarsForCodigoTipoDocumento = new HashSet<CuentaPagar>(
@@ -68,23 +73,26 @@ public class DatoBasico implements java.io.Serializable {
 			0);
 	private Set<ActividadEntrenamiento> actividadEntrenamientos = new HashSet<ActividadEntrenamiento>(
 			0);
-	private Set<RosterCompetencia> rosterCompetenciasForCodigoTipoJugador = new HashSet<RosterCompetencia>(
-			0);
 	private Set<PersonalForaneoJuego> personalForaneoJuegos = new HashSet<PersonalForaneoJuego>(
 			0);
 	private Set<LineUp> lineUpsForCodigoPosicion = new HashSet<LineUp>(0);
+	private Set<Personal> personals = new HashSet<Personal>(0);
 	private Set<LogroPorJugador> logroPorJugadors = new HashSet<LogroPorJugador>(
 			0);
-	private Set<DocumentoAcreedor> documentoAcreedors = new HashSet<DocumentoAcreedor>(
+	private Set<TipoIngreso> tipoIngresosForCodigoPeriodicidad = new HashSet<TipoIngreso>(
 			0);
 	private Set<SesionEjecutada> sesionEjecutadas = new HashSet<SesionEjecutada>(
+			0);
+	private Set<Institucion> institucionsForCodigoParroquia = new HashSet<Institucion>(
 			0);
 	private Set<CuentaPagar> cuentaPagarsForCodigoTipoEgreso = new HashSet<CuentaPagar>(
 			0);
 	private Set<IngresoFormaPago> ingresoFormaPagosForCodigoFormaPago = new HashSet<IngresoFormaPago>(
 			0);
-	private Set<Ascenso> ascensos = new HashSet<Ascenso>(0);
+	private Set<TipoIngreso> tipoIngresosForCodigoTipo = new HashSet<TipoIngreso>(
+			0);
 	private Set<EscalaMedicion> escalaMedicions = new HashSet<EscalaMedicion>(0);
+	private Set<JugadorPlan> jugadorPlans = new HashSet<JugadorPlan>(0);
 	private Set<DatoAcademico> datoAcademicosForCodigoCurso = new HashSet<DatoAcademico>(
 			0);
 	private Set<AsistenciaJugador> asistenciaJugadors = new HashSet<AsistenciaJugador>(
@@ -103,10 +111,12 @@ public class DatoBasico implements java.io.Serializable {
 			0);
 	private Set<TallaPorIndumentaria> tallaPorIndumentariasForCodigoTalla = new HashSet<TallaPorIndumentaria>(
 			0);
-	private Set<Equipo> equipos = new HashSet<Equipo>(0);
+	private Set<Equipo> equiposForCodigoClasificacion = new HashSet<Equipo>(0);
 	private Set<Material> materialsForCodigoTipoMaterial = new HashSet<Material>(
 			0);
 	private Set<Medico> medicos = new HashSet<Medico>(0);
+	private Set<ComisionActividadPlanificada> comisionActividadPlanificadas = new HashSet<ComisionActividadPlanificada>(
+			0);
 	private Set<Competencia> competenciasForCodigoEstado = new HashSet<Competencia>(
 			0);
 	private Set<TareaActividadPlanificada> tareaActividadPlanificadas = new HashSet<TareaActividadPlanificada>(
@@ -116,25 +126,34 @@ public class DatoBasico implements java.io.Serializable {
 	private Set<IngresoFormaPago> ingresoFormaPagosForCodigoBanco = new HashSet<IngresoFormaPago>(
 			0);
 	private Set<Sesion> sesions = new HashSet<Sesion>(0);
+	private Set<PersonalSuplente> personalSuplentes = new HashSet<PersonalSuplente>(
+			0);
+	private Set<Equipo> equiposForCodigoTipoLapso = new HashSet<Equipo>(0);
 	private Set<IngresoFormaPago> ingresoFormaPagosForCodigoTarjeta = new HashSet<IngresoFormaPago>(
 			0);
-	private Set<TipoCompetencia> tipoCompetencias = new HashSet<TipoCompetencia>(
+	private Set<CondicionCompetencia> condicionCompetencias = new HashSet<CondicionCompetencia>(
 			0);
 	private Set<ResultadoActividad> resultadoActividads = new HashSet<ResultadoActividad>(
 			0);
 	private Set<Nomina> nominas = new HashSet<Nomina>(0);
 	private Set<AfeccionPersonal> afeccionPersonals = new HashSet<AfeccionPersonal>(
 			0);
-	private Set<Horario> horarios = new HashSet<Horario>(0);
+	private Set<InstalacionEjecutada> instalacionEjecutadas = new HashSet<InstalacionEjecutada>(
+			0);
 	private Set<LapsoDeportivo> lapsoDeportivos = new HashSet<LapsoDeportivo>(0);
+	private Set<AsistenciaPersonalEntrenamiento> asistenciaPersonalEntrenamientos = new HashSet<AsistenciaPersonalEntrenamiento>(
+			0);
+	private Set<Horario> horarios = new HashSet<Horario>(0);
 	private Set<Familiar> familiars = new HashSet<Familiar>(0);
-	private Set<RetiroTraslado> retiroTraslados = new HashSet<RetiroTraslado>(0);
+	private Set<RetiroTraslado> retiroTrasladosForCodigoMotivoRetiro = new HashSet<RetiroTraslado>(
+			0);
 	private Set<PersonalContrato> personalContratosForCodigoModalidad = new HashSet<PersonalContrato>(
 			0);
 	private Set<EgresoFormaPago> egresoFormaPagosForCodigoBanco = new HashSet<EgresoFormaPago>(
 			0);
 	private Set<ActividadCalendario> actividadCalendarios = new HashSet<ActividadCalendario>(
 			0);
+	private Set<Persona> personasForCodigoTipoPersona = new HashSet<Persona>(0);
 	private Set<AfeccionJugador> afeccionJugadors = new HashSet<AfeccionJugador>(
 			0);
 	private Set<RecaudoPorProceso> recaudoPorProcesosForCodigoProceso = new HashSet<RecaudoPorProceso>(
@@ -146,13 +165,13 @@ public class DatoBasico implements java.io.Serializable {
 	private Set<DatoSocial> datoSocials = new HashSet<DatoSocial>(0);
 	private Set<DatoConducta> datoConductas = new HashSet<DatoConducta>(0);
 	private Set<LineUp> lineUpsForCodigoTipoMencion = new HashSet<LineUp>(0);
-	private Set<SeguridadFuncional> seguridadFuncionals = new HashSet<SeguridadFuncional>(
-			0);
+	private Set<LineUp> lineUpsForCodigoEstadoLineUp = new HashSet<LineUp>(0);
 	private Set<Juego> juegos = new HashSet<Juego>(0);
 	private Set<MotivoSancion> motivoSancions = new HashSet<MotivoSancion>(0);
 	private Set<Material> materialsForCodigoUnidadMedida = new HashSet<Material>(
 			0);
 	private Set<TareaActividad> tareaActividads = new HashSet<TareaActividad>(0);
+	private Set<PersonaNatural> personaNaturals = new HashSet<PersonaNatural>(0);
 	private Set<ConceptoNomina> conceptoNominas = new HashSet<ConceptoNomina>(0);
 	private Set<Instalacion> instalacions = new HashSet<Instalacion>(0);
 
@@ -160,11 +179,10 @@ public class DatoBasico implements java.io.Serializable {
 	}
 
 	public DatoBasico(int codigoDatoBasico, TipoDato tipoDato, String nombre,
-			String descripcion, char estatus) {
+			char estatus) {
 		this.codigoDatoBasico = codigoDatoBasico;
 		this.tipoDato = tipoDato;
 		this.nombre = nombre;
-		this.descripcion = descripcion;
 		this.estatus = estatus;
 	}
 
@@ -175,70 +193,91 @@ public class DatoBasico implements java.io.Serializable {
 			String nombre,
 			String descripcion,
 			char estatus,
+			Set<RetiroTraslado> retiroTrasladosForCodigoTipoOperacion,
 			Set<FamiliarJugador> familiarJugadors,
-			Set<TallaPorIndumentaria> tallaPorIndumentariasForCodigoIndumentaria,
-			Set<PlanRotacion> planRotacions,
+			Set<TallaPorIndumentaria> tallaPorIndumentariasForCodigoTipoUniforme,
 			Set<EgresoFormaPago> egresoFormaPagosForCodigoTarjeta,
-			TipoPagoRepresentante tipoPagoRepresentante, Set<Divisa> divisas,
-			Set<Indicador> indicadorsForCodigoTipo,
+			Set<Divisa> divisas,
+			Set<Indicador> indicadorsForCodigoTipoIndicador,
 			Set<SolicitudMantenimiento> solicitudMantenimientos,
 			Set<IndicadorActividadEscala> indicadorActividadEscalas,
-			Set<ProveedorBanco> proveedorBancos,
-			Set<RosterCompetencia> rosterCompetenciasForCodigoJugadorClave,
-			Set<IndicadorTest> indicadorTests, Set<Persona> personas,
+			Set<ProveedorBanco> proveedorBancosForCodigoBanco,
+			Set<Requisicion> requisicions,
+			Set<Indicador> indicadorsForCodigoMedicion,
+			Set<Persona> personasForCodigoParroquia,
+			Set<ProveedorBanco> proveedorBancosForCodigoTipoCuenta,
 			Set<PersonalContrato> personalContratosForCodigoHorario,
-			Set<PersonalJuego> personalJuegos,
+			Set<ClasificacionCompetencia> clasificacionCompetencias,
 			Set<Indicador> indicadorsForCodigoModalidad,
-			Set<Institucion> institucions, Set<PersonalCargo> personalCargos,
-			Set<EstadoActividad> estadoActividads, Set<Estadio> estadios,
-			Set<Actividad> actividads, Set<JugadorForaneo> jugadorForaneos,
+			Set<Institucion> institucionsForCodigoTipoInstitucion,
+			Set<PersonalCargo> personalCargos,
+			Set<EstadoActividad> estadoActividads,
+			Set<EgresoFormaPago> egresoFormaPagosForCodigoFormaPago,
+			Set<Estadio> estadios,
+			Set<ComisionActividad> comisionActividads,
 			Set<RecaudoPorProceso> recaudoPorProcesosForCodigoImportancia,
 			Set<CuentaPagar> cuentaPagarsForCodigoTipoDocumento,
 			Set<Competencia> competenciasForCodigoEstadoCompetencia,
 			Set<ActividadEntrenamiento> actividadEntrenamientos,
-			Set<RosterCompetencia> rosterCompetenciasForCodigoTipoJugador,
 			Set<PersonalForaneoJuego> personalForaneoJuegos,
 			Set<LineUp> lineUpsForCodigoPosicion,
+			Set<Personal> personals,
 			Set<LogroPorJugador> logroPorJugadors,
-			Set<DocumentoAcreedor> documentoAcreedors,
+			Set<TipoIngreso> tipoIngresosForCodigoPeriodicidad,
 			Set<SesionEjecutada> sesionEjecutadas,
+			Set<Institucion> institucionsForCodigoParroquia,
 			Set<CuentaPagar> cuentaPagarsForCodigoTipoEgreso,
 			Set<IngresoFormaPago> ingresoFormaPagosForCodigoFormaPago,
-			Set<Ascenso> ascensos, Set<EscalaMedicion> escalaMedicions,
+			Set<TipoIngreso> tipoIngresosForCodigoTipo,
+			Set<EscalaMedicion> escalaMedicions,
+			Set<JugadorPlan> jugadorPlans,
 			Set<DatoAcademico> datoAcademicosForCodigoCurso,
 			Set<AsistenciaJugador> asistenciaJugadors,
 			Set<PersonalForaneo> personalForaneos,
 			Set<DatoAcademico> datoAcademicosForCodigoAnnoEscolar,
 			Set<ComisionEquipo> comisionEquipos,
-			Set<Jugador> jugadorsForCodigoPais, Set<DatoBasico> datoBasicos,
-			Set<Ingreso> ingresos, Set<PersonalTipoNomina> personalTipoNominas,
+			Set<Jugador> jugadorsForCodigoPais,
+			Set<DatoBasico> datoBasicos,
+			Set<Ingreso> ingresos,
+			Set<PersonalTipoNomina> personalTipoNominas,
 			Set<Jugador> jugadorsForCodigoParroquiaNacimiento,
 			Set<TallaPorIndumentaria> tallaPorIndumentariasForCodigoTalla,
-			Set<Equipo> equipos, Set<Material> materialsForCodigoTipoMaterial,
-			Set<Medico> medicos, Set<Competencia> competenciasForCodigoEstado,
+			Set<Equipo> equiposForCodigoClasificacion,
+			Set<Material> materialsForCodigoTipoMaterial,
+			Set<Medico> medicos,
+			Set<ComisionActividadPlanificada> comisionActividadPlanificadas,
+			Set<Competencia> competenciasForCodigoEstado,
 			Set<TareaActividadPlanificada> tareaActividadPlanificadas,
 			Set<Competencia> competenciasForCodigoOrganizacion,
 			Set<IngresoFormaPago> ingresoFormaPagosForCodigoBanco,
 			Set<Sesion> sesions,
+			Set<PersonalSuplente> personalSuplentes,
+			Set<Equipo> equiposForCodigoTipoLapso,
 			Set<IngresoFormaPago> ingresoFormaPagosForCodigoTarjeta,
-			Set<TipoCompetencia> tipoCompetencias,
-			Set<ResultadoActividad> resultadoActividads, Set<Nomina> nominas,
-			Set<AfeccionPersonal> afeccionPersonals, Set<Horario> horarios,
-			Set<LapsoDeportivo> lapsoDeportivos, Set<Familiar> familiars,
-			Set<RetiroTraslado> retiroTraslados,
+			Set<CondicionCompetencia> condicionCompetencias,
+			Set<ResultadoActividad> resultadoActividads,
+			Set<Nomina> nominas,
+			Set<AfeccionPersonal> afeccionPersonals,
+			Set<InstalacionEjecutada> instalacionEjecutadas,
+			Set<LapsoDeportivo> lapsoDeportivos,
+			Set<AsistenciaPersonalEntrenamiento> asistenciaPersonalEntrenamientos,
+			Set<Horario> horarios, Set<Familiar> familiars,
+			Set<RetiroTraslado> retiroTrasladosForCodigoMotivoRetiro,
 			Set<PersonalContrato> personalContratosForCodigoModalidad,
 			Set<EgresoFormaPago> egresoFormaPagosForCodigoBanco,
 			Set<ActividadCalendario> actividadCalendarios,
+			Set<Persona> personasForCodigoTipoPersona,
 			Set<AfeccionJugador> afeccionJugadors,
 			Set<RecaudoPorProceso> recaudoPorProcesosForCodigoProceso,
 			Set<RecaudoPorProceso> recaudoPorProcesosForCodigoDocumento,
 			Set<PlanificacionActividad> planificacionActividads,
 			Set<DatoSocial> datoSocials, Set<DatoConducta> datoConductas,
 			Set<LineUp> lineUpsForCodigoTipoMencion,
-			Set<SeguridadFuncional> seguridadFuncionals, Set<Juego> juegos,
+			Set<LineUp> lineUpsForCodigoEstadoLineUp, Set<Juego> juegos,
 			Set<MotivoSancion> motivoSancions,
 			Set<Material> materialsForCodigoUnidadMedida,
 			Set<TareaActividad> tareaActividads,
+			Set<PersonaNatural> personaNaturals,
 			Set<ConceptoNomina> conceptoNominas, Set<Instalacion> instalacions) {
 		this.codigoDatoBasico = codigoDatoBasico;
 		this.tipoDato = tipoDato;
@@ -246,42 +285,44 @@ public class DatoBasico implements java.io.Serializable {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.estatus = estatus;
+		this.retiroTrasladosForCodigoTipoOperacion = retiroTrasladosForCodigoTipoOperacion;
 		this.familiarJugadors = familiarJugadors;
-		this.tallaPorIndumentariasForCodigoIndumentaria = tallaPorIndumentariasForCodigoIndumentaria;
-		this.planRotacions = planRotacions;
+		this.tallaPorIndumentariasForCodigoTipoUniforme = tallaPorIndumentariasForCodigoTipoUniforme;
 		this.egresoFormaPagosForCodigoTarjeta = egresoFormaPagosForCodigoTarjeta;
-		this.tipoPagoRepresentante = tipoPagoRepresentante;
 		this.divisas = divisas;
-		this.indicadorsForCodigoTipo = indicadorsForCodigoTipo;
+		this.indicadorsForCodigoTipoIndicador = indicadorsForCodigoTipoIndicador;
 		this.solicitudMantenimientos = solicitudMantenimientos;
 		this.indicadorActividadEscalas = indicadorActividadEscalas;
-		this.proveedorBancos = proveedorBancos;
-		this.rosterCompetenciasForCodigoJugadorClave = rosterCompetenciasForCodigoJugadorClave;
-		this.indicadorTests = indicadorTests;
-		this.personas = personas;
+		this.proveedorBancosForCodigoBanco = proveedorBancosForCodigoBanco;
+		this.requisicions = requisicions;
+		this.indicadorsForCodigoMedicion = indicadorsForCodigoMedicion;
+		this.personasForCodigoParroquia = personasForCodigoParroquia;
+		this.proveedorBancosForCodigoTipoCuenta = proveedorBancosForCodigoTipoCuenta;
 		this.personalContratosForCodigoHorario = personalContratosForCodigoHorario;
-		this.personalJuegos = personalJuegos;
+		this.clasificacionCompetencias = clasificacionCompetencias;
 		this.indicadorsForCodigoModalidad = indicadorsForCodigoModalidad;
-		this.institucions = institucions;
+		this.institucionsForCodigoTipoInstitucion = institucionsForCodigoTipoInstitucion;
 		this.personalCargos = personalCargos;
 		this.estadoActividads = estadoActividads;
+		this.egresoFormaPagosForCodigoFormaPago = egresoFormaPagosForCodigoFormaPago;
 		this.estadios = estadios;
-		this.actividads = actividads;
-		this.jugadorForaneos = jugadorForaneos;
+		this.comisionActividads = comisionActividads;
 		this.recaudoPorProcesosForCodigoImportancia = recaudoPorProcesosForCodigoImportancia;
 		this.cuentaPagarsForCodigoTipoDocumento = cuentaPagarsForCodigoTipoDocumento;
 		this.competenciasForCodigoEstadoCompetencia = competenciasForCodigoEstadoCompetencia;
 		this.actividadEntrenamientos = actividadEntrenamientos;
-		this.rosterCompetenciasForCodigoTipoJugador = rosterCompetenciasForCodigoTipoJugador;
 		this.personalForaneoJuegos = personalForaneoJuegos;
 		this.lineUpsForCodigoPosicion = lineUpsForCodigoPosicion;
+		this.personals = personals;
 		this.logroPorJugadors = logroPorJugadors;
-		this.documentoAcreedors = documentoAcreedors;
+		this.tipoIngresosForCodigoPeriodicidad = tipoIngresosForCodigoPeriodicidad;
 		this.sesionEjecutadas = sesionEjecutadas;
+		this.institucionsForCodigoParroquia = institucionsForCodigoParroquia;
 		this.cuentaPagarsForCodigoTipoEgreso = cuentaPagarsForCodigoTipoEgreso;
 		this.ingresoFormaPagosForCodigoFormaPago = ingresoFormaPagosForCodigoFormaPago;
-		this.ascensos = ascensos;
+		this.tipoIngresosForCodigoTipo = tipoIngresosForCodigoTipo;
 		this.escalaMedicions = escalaMedicions;
+		this.jugadorPlans = jugadorPlans;
 		this.datoAcademicosForCodigoCurso = datoAcademicosForCodigoCurso;
 		this.asistenciaJugadors = asistenciaJugadors;
 		this.personalForaneos = personalForaneos;
@@ -293,26 +334,32 @@ public class DatoBasico implements java.io.Serializable {
 		this.personalTipoNominas = personalTipoNominas;
 		this.jugadorsForCodigoParroquiaNacimiento = jugadorsForCodigoParroquiaNacimiento;
 		this.tallaPorIndumentariasForCodigoTalla = tallaPorIndumentariasForCodigoTalla;
-		this.equipos = equipos;
+		this.equiposForCodigoClasificacion = equiposForCodigoClasificacion;
 		this.materialsForCodigoTipoMaterial = materialsForCodigoTipoMaterial;
 		this.medicos = medicos;
+		this.comisionActividadPlanificadas = comisionActividadPlanificadas;
 		this.competenciasForCodigoEstado = competenciasForCodigoEstado;
 		this.tareaActividadPlanificadas = tareaActividadPlanificadas;
 		this.competenciasForCodigoOrganizacion = competenciasForCodigoOrganizacion;
 		this.ingresoFormaPagosForCodigoBanco = ingresoFormaPagosForCodigoBanco;
 		this.sesions = sesions;
+		this.personalSuplentes = personalSuplentes;
+		this.equiposForCodigoTipoLapso = equiposForCodigoTipoLapso;
 		this.ingresoFormaPagosForCodigoTarjeta = ingresoFormaPagosForCodigoTarjeta;
-		this.tipoCompetencias = tipoCompetencias;
+		this.condicionCompetencias = condicionCompetencias;
 		this.resultadoActividads = resultadoActividads;
 		this.nominas = nominas;
 		this.afeccionPersonals = afeccionPersonals;
-		this.horarios = horarios;
+		this.instalacionEjecutadas = instalacionEjecutadas;
 		this.lapsoDeportivos = lapsoDeportivos;
+		this.asistenciaPersonalEntrenamientos = asistenciaPersonalEntrenamientos;
+		this.horarios = horarios;
 		this.familiars = familiars;
-		this.retiroTraslados = retiroTraslados;
+		this.retiroTrasladosForCodigoMotivoRetiro = retiroTrasladosForCodigoMotivoRetiro;
 		this.personalContratosForCodigoModalidad = personalContratosForCodigoModalidad;
 		this.egresoFormaPagosForCodigoBanco = egresoFormaPagosForCodigoBanco;
 		this.actividadCalendarios = actividadCalendarios;
+		this.personasForCodigoTipoPersona = personasForCodigoTipoPersona;
 		this.afeccionJugadors = afeccionJugadors;
 		this.recaudoPorProcesosForCodigoProceso = recaudoPorProcesosForCodigoProceso;
 		this.recaudoPorProcesosForCodigoDocumento = recaudoPorProcesosForCodigoDocumento;
@@ -320,11 +367,12 @@ public class DatoBasico implements java.io.Serializable {
 		this.datoSocials = datoSocials;
 		this.datoConductas = datoConductas;
 		this.lineUpsForCodigoTipoMencion = lineUpsForCodigoTipoMencion;
-		this.seguridadFuncionals = seguridadFuncionals;
+		this.lineUpsForCodigoEstadoLineUp = lineUpsForCodigoEstadoLineUp;
 		this.juegos = juegos;
 		this.motivoSancions = motivoSancions;
 		this.materialsForCodigoUnidadMedida = materialsForCodigoUnidadMedida;
 		this.tareaActividads = tareaActividads;
+		this.personaNaturals = personaNaturals;
 		this.conceptoNominas = conceptoNominas;
 		this.instalacions = instalacions;
 	}
@@ -368,7 +416,7 @@ public class DatoBasico implements java.io.Serializable {
 		this.nombre = nombre;
 	}
 
-	@Column(name = "descripcion", nullable = false)
+	@Column(name = "descripcion")
 	public String getDescripcion() {
 		return this.descripcion;
 	}
@@ -386,6 +434,16 @@ public class DatoBasico implements java.io.Serializable {
 		this.estatus = estatus;
 	}
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipoOperacion")
+	public Set<RetiroTraslado> getRetiroTrasladosForCodigoTipoOperacion() {
+		return this.retiroTrasladosForCodigoTipoOperacion;
+	}
+
+	public void setRetiroTrasladosForCodigoTipoOperacion(
+			Set<RetiroTraslado> retiroTrasladosForCodigoTipoOperacion) {
+		this.retiroTrasladosForCodigoTipoOperacion = retiroTrasladosForCodigoTipoOperacion;
+	}
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
 	public Set<FamiliarJugador> getFamiliarJugadors() {
 		return this.familiarJugadors;
@@ -395,23 +453,14 @@ public class DatoBasico implements java.io.Serializable {
 		this.familiarJugadors = familiarJugadors;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoIndumentaria")
-	public Set<TallaPorIndumentaria> getTallaPorIndumentariasForCodigoIndumentaria() {
-		return this.tallaPorIndumentariasForCodigoIndumentaria;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipoUniforme")
+	public Set<TallaPorIndumentaria> getTallaPorIndumentariasForCodigoTipoUniforme() {
+		return this.tallaPorIndumentariasForCodigoTipoUniforme;
 	}
 
-	public void setTallaPorIndumentariasForCodigoIndumentaria(
-			Set<TallaPorIndumentaria> tallaPorIndumentariasForCodigoIndumentaria) {
-		this.tallaPorIndumentariasForCodigoIndumentaria = tallaPorIndumentariasForCodigoIndumentaria;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<PlanRotacion> getPlanRotacions() {
-		return this.planRotacions;
-	}
-
-	public void setPlanRotacions(Set<PlanRotacion> planRotacions) {
-		this.planRotacions = planRotacions;
+	public void setTallaPorIndumentariasForCodigoTipoUniforme(
+			Set<TallaPorIndumentaria> tallaPorIndumentariasForCodigoTipoUniforme) {
+		this.tallaPorIndumentariasForCodigoTipoUniforme = tallaPorIndumentariasForCodigoTipoUniforme;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTarjeta")
@@ -424,16 +473,6 @@ public class DatoBasico implements java.io.Serializable {
 		this.egresoFormaPagosForCodigoTarjeta = egresoFormaPagosForCodigoTarjeta;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public TipoPagoRepresentante getTipoPagoRepresentante() {
-		return this.tipoPagoRepresentante;
-	}
-
-	public void setTipoPagoRepresentante(
-			TipoPagoRepresentante tipoPagoRepresentante) {
-		this.tipoPagoRepresentante = tipoPagoRepresentante;
-	}
-
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
 	public Set<Divisa> getDivisas() {
 		return this.divisas;
@@ -443,14 +482,14 @@ public class DatoBasico implements java.io.Serializable {
 		this.divisas = divisas;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipo")
-	public Set<Indicador> getIndicadorsForCodigoTipo() {
-		return this.indicadorsForCodigoTipo;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipoIndicador")
+	public Set<Indicador> getIndicadorsForCodigoTipoIndicador() {
+		return this.indicadorsForCodigoTipoIndicador;
 	}
 
-	public void setIndicadorsForCodigoTipo(
-			Set<Indicador> indicadorsForCodigoTipo) {
-		this.indicadorsForCodigoTipo = indicadorsForCodigoTipo;
+	public void setIndicadorsForCodigoTipoIndicador(
+			Set<Indicador> indicadorsForCodigoTipoIndicador) {
+		this.indicadorsForCodigoTipoIndicador = indicadorsForCodigoTipoIndicador;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
@@ -473,41 +512,53 @@ public class DatoBasico implements java.io.Serializable {
 		this.indicadorActividadEscalas = indicadorActividadEscalas;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<ProveedorBanco> getProveedorBancos() {
-		return this.proveedorBancos;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoBanco")
+	public Set<ProveedorBanco> getProveedorBancosForCodigoBanco() {
+		return this.proveedorBancosForCodigoBanco;
 	}
 
-	public void setProveedorBancos(Set<ProveedorBanco> proveedorBancos) {
-		this.proveedorBancos = proveedorBancos;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoJugadorClave")
-	public Set<RosterCompetencia> getRosterCompetenciasForCodigoJugadorClave() {
-		return this.rosterCompetenciasForCodigoJugadorClave;
-	}
-
-	public void setRosterCompetenciasForCodigoJugadorClave(
-			Set<RosterCompetencia> rosterCompetenciasForCodigoJugadorClave) {
-		this.rosterCompetenciasForCodigoJugadorClave = rosterCompetenciasForCodigoJugadorClave;
+	public void setProveedorBancosForCodigoBanco(
+			Set<ProveedorBanco> proveedorBancosForCodigoBanco) {
+		this.proveedorBancosForCodigoBanco = proveedorBancosForCodigoBanco;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<IndicadorTest> getIndicadorTests() {
-		return this.indicadorTests;
+	public Set<Requisicion> getRequisicions() {
+		return this.requisicions;
 	}
 
-	public void setIndicadorTests(Set<IndicadorTest> indicadorTests) {
-		this.indicadorTests = indicadorTests;
+	public void setRequisicions(Set<Requisicion> requisicions) {
+		this.requisicions = requisicions;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<Persona> getPersonas() {
-		return this.personas;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoMedicion")
+	public Set<Indicador> getIndicadorsForCodigoMedicion() {
+		return this.indicadorsForCodigoMedicion;
 	}
 
-	public void setPersonas(Set<Persona> personas) {
-		this.personas = personas;
+	public void setIndicadorsForCodigoMedicion(
+			Set<Indicador> indicadorsForCodigoMedicion) {
+		this.indicadorsForCodigoMedicion = indicadorsForCodigoMedicion;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoParroquia")
+	public Set<Persona> getPersonasForCodigoParroquia() {
+		return this.personasForCodigoParroquia;
+	}
+
+	public void setPersonasForCodigoParroquia(
+			Set<Persona> personasForCodigoParroquia) {
+		this.personasForCodigoParroquia = personasForCodigoParroquia;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipoCuenta")
+	public Set<ProveedorBanco> getProveedorBancosForCodigoTipoCuenta() {
+		return this.proveedorBancosForCodigoTipoCuenta;
+	}
+
+	public void setProveedorBancosForCodigoTipoCuenta(
+			Set<ProveedorBanco> proveedorBancosForCodigoTipoCuenta) {
+		this.proveedorBancosForCodigoTipoCuenta = proveedorBancosForCodigoTipoCuenta;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoHorario")
@@ -521,12 +572,13 @@ public class DatoBasico implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<PersonalJuego> getPersonalJuegos() {
-		return this.personalJuegos;
+	public Set<ClasificacionCompetencia> getClasificacionCompetencias() {
+		return this.clasificacionCompetencias;
 	}
 
-	public void setPersonalJuegos(Set<PersonalJuego> personalJuegos) {
-		this.personalJuegos = personalJuegos;
+	public void setClasificacionCompetencias(
+			Set<ClasificacionCompetencia> clasificacionCompetencias) {
+		this.clasificacionCompetencias = clasificacionCompetencias;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoModalidad")
@@ -539,13 +591,14 @@ public class DatoBasico implements java.io.Serializable {
 		this.indicadorsForCodigoModalidad = indicadorsForCodigoModalidad;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<Institucion> getInstitucions() {
-		return this.institucions;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipoInstitucion")
+	public Set<Institucion> getInstitucionsForCodigoTipoInstitucion() {
+		return this.institucionsForCodigoTipoInstitucion;
 	}
 
-	public void setInstitucions(Set<Institucion> institucions) {
-		this.institucions = institucions;
+	public void setInstitucionsForCodigoTipoInstitucion(
+			Set<Institucion> institucionsForCodigoTipoInstitucion) {
+		this.institucionsForCodigoTipoInstitucion = institucionsForCodigoTipoInstitucion;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
@@ -566,6 +619,16 @@ public class DatoBasico implements java.io.Serializable {
 		this.estadoActividads = estadoActividads;
 	}
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoFormaPago")
+	public Set<EgresoFormaPago> getEgresoFormaPagosForCodigoFormaPago() {
+		return this.egresoFormaPagosForCodigoFormaPago;
+	}
+
+	public void setEgresoFormaPagosForCodigoFormaPago(
+			Set<EgresoFormaPago> egresoFormaPagosForCodigoFormaPago) {
+		this.egresoFormaPagosForCodigoFormaPago = egresoFormaPagosForCodigoFormaPago;
+	}
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
 	public Set<Estadio> getEstadios() {
 		return this.estadios;
@@ -575,23 +638,13 @@ public class DatoBasico implements java.io.Serializable {
 		this.estadios = estadios;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "comision_actividad", schema = "public", joinColumns = { @JoinColumn(name = "codigo_comision", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "codigo_actividad", nullable = false, updatable = false) })
-	public Set<Actividad> getActividads() {
-		return this.actividads;
-	}
-
-	public void setActividads(Set<Actividad> actividads) {
-		this.actividads = actividads;
-	}
-
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<JugadorForaneo> getJugadorForaneos() {
-		return this.jugadorForaneos;
+	public Set<ComisionActividad> getComisionActividads() {
+		return this.comisionActividads;
 	}
 
-	public void setJugadorForaneos(Set<JugadorForaneo> jugadorForaneos) {
-		this.jugadorForaneos = jugadorForaneos;
+	public void setComisionActividads(Set<ComisionActividad> comisionActividads) {
+		this.comisionActividads = comisionActividads;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoImportancia")
@@ -634,16 +687,6 @@ public class DatoBasico implements java.io.Serializable {
 		this.actividadEntrenamientos = actividadEntrenamientos;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipoJugador")
-	public Set<RosterCompetencia> getRosterCompetenciasForCodigoTipoJugador() {
-		return this.rosterCompetenciasForCodigoTipoJugador;
-	}
-
-	public void setRosterCompetenciasForCodigoTipoJugador(
-			Set<RosterCompetencia> rosterCompetenciasForCodigoTipoJugador) {
-		this.rosterCompetenciasForCodigoTipoJugador = rosterCompetenciasForCodigoTipoJugador;
-	}
-
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
 	public Set<PersonalForaneoJuego> getPersonalForaneoJuegos() {
 		return this.personalForaneoJuegos;
@@ -664,6 +707,15 @@ public class DatoBasico implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
+	public Set<Personal> getPersonals() {
+		return this.personals;
+	}
+
+	public void setPersonals(Set<Personal> personals) {
+		this.personals = personals;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
 	public Set<LogroPorJugador> getLogroPorJugadors() {
 		return this.logroPorJugadors;
 	}
@@ -672,13 +724,14 @@ public class DatoBasico implements java.io.Serializable {
 		this.logroPorJugadors = logroPorJugadors;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<DocumentoAcreedor> getDocumentoAcreedors() {
-		return this.documentoAcreedors;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoPeriodicidad")
+	public Set<TipoIngreso> getTipoIngresosForCodigoPeriodicidad() {
+		return this.tipoIngresosForCodigoPeriodicidad;
 	}
 
-	public void setDocumentoAcreedors(Set<DocumentoAcreedor> documentoAcreedors) {
-		this.documentoAcreedors = documentoAcreedors;
+	public void setTipoIngresosForCodigoPeriodicidad(
+			Set<TipoIngreso> tipoIngresosForCodigoPeriodicidad) {
+		this.tipoIngresosForCodigoPeriodicidad = tipoIngresosForCodigoPeriodicidad;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
@@ -688,6 +741,16 @@ public class DatoBasico implements java.io.Serializable {
 
 	public void setSesionEjecutadas(Set<SesionEjecutada> sesionEjecutadas) {
 		this.sesionEjecutadas = sesionEjecutadas;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoParroquia")
+	public Set<Institucion> getInstitucionsForCodigoParroquia() {
+		return this.institucionsForCodigoParroquia;
+	}
+
+	public void setInstitucionsForCodigoParroquia(
+			Set<Institucion> institucionsForCodigoParroquia) {
+		this.institucionsForCodigoParroquia = institucionsForCodigoParroquia;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipoEgreso")
@@ -710,13 +773,14 @@ public class DatoBasico implements java.io.Serializable {
 		this.ingresoFormaPagosForCodigoFormaPago = ingresoFormaPagosForCodigoFormaPago;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<Ascenso> getAscensos() {
-		return this.ascensos;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipo")
+	public Set<TipoIngreso> getTipoIngresosForCodigoTipo() {
+		return this.tipoIngresosForCodigoTipo;
 	}
 
-	public void setAscensos(Set<Ascenso> ascensos) {
-		this.ascensos = ascensos;
+	public void setTipoIngresosForCodigoTipo(
+			Set<TipoIngreso> tipoIngresosForCodigoTipo) {
+		this.tipoIngresosForCodigoTipo = tipoIngresosForCodigoTipo;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
@@ -726,6 +790,15 @@ public class DatoBasico implements java.io.Serializable {
 
 	public void setEscalaMedicions(Set<EscalaMedicion> escalaMedicions) {
 		this.escalaMedicions = escalaMedicions;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
+	public Set<JugadorPlan> getJugadorPlans() {
+		return this.jugadorPlans;
+	}
+
+	public void setJugadorPlans(Set<JugadorPlan> jugadorPlans) {
+		this.jugadorPlans = jugadorPlans;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoCurso")
@@ -832,13 +905,14 @@ public class DatoBasico implements java.io.Serializable {
 		this.tallaPorIndumentariasForCodigoTalla = tallaPorIndumentariasForCodigoTalla;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<Equipo> getEquipos() {
-		return this.equipos;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoClasificacion")
+	public Set<Equipo> getEquiposForCodigoClasificacion() {
+		return this.equiposForCodigoClasificacion;
 	}
 
-	public void setEquipos(Set<Equipo> equipos) {
-		this.equipos = equipos;
+	public void setEquiposForCodigoClasificacion(
+			Set<Equipo> equiposForCodigoClasificacion) {
+		this.equiposForCodigoClasificacion = equiposForCodigoClasificacion;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipoMaterial")
@@ -858,6 +932,16 @@ public class DatoBasico implements java.io.Serializable {
 
 	public void setMedicos(Set<Medico> medicos) {
 		this.medicos = medicos;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
+	public Set<ComisionActividadPlanificada> getComisionActividadPlanificadas() {
+		return this.comisionActividadPlanificadas;
+	}
+
+	public void setComisionActividadPlanificadas(
+			Set<ComisionActividadPlanificada> comisionActividadPlanificadas) {
+		this.comisionActividadPlanificadas = comisionActividadPlanificadas;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoEstado")
@@ -909,6 +993,25 @@ public class DatoBasico implements java.io.Serializable {
 		this.sesions = sesions;
 	}
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
+	public Set<PersonalSuplente> getPersonalSuplentes() {
+		return this.personalSuplentes;
+	}
+
+	public void setPersonalSuplentes(Set<PersonalSuplente> personalSuplentes) {
+		this.personalSuplentes = personalSuplentes;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipoLapso")
+	public Set<Equipo> getEquiposForCodigoTipoLapso() {
+		return this.equiposForCodigoTipoLapso;
+	}
+
+	public void setEquiposForCodigoTipoLapso(
+			Set<Equipo> equiposForCodigoTipoLapso) {
+		this.equiposForCodigoTipoLapso = equiposForCodigoTipoLapso;
+	}
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTarjeta")
 	public Set<IngresoFormaPago> getIngresoFormaPagosForCodigoTarjeta() {
 		return this.ingresoFormaPagosForCodigoTarjeta;
@@ -919,14 +1022,14 @@ public class DatoBasico implements java.io.Serializable {
 		this.ingresoFormaPagosForCodigoTarjeta = ingresoFormaPagosForCodigoTarjeta;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "condicion_competencia", schema = "public", joinColumns = { @JoinColumn(name = "codigo_condicion", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "codigo_tipo_competencia", nullable = false, updatable = false) })
-	public Set<TipoCompetencia> getTipoCompetencias() {
-		return this.tipoCompetencias;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
+	public Set<CondicionCompetencia> getCondicionCompetencias() {
+		return this.condicionCompetencias;
 	}
 
-	public void setTipoCompetencias(Set<TipoCompetencia> tipoCompetencias) {
-		this.tipoCompetencias = tipoCompetencias;
+	public void setCondicionCompetencias(
+			Set<CondicionCompetencia> condicionCompetencias) {
+		this.condicionCompetencias = condicionCompetencias;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
@@ -958,12 +1061,13 @@ public class DatoBasico implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<Horario> getHorarios() {
-		return this.horarios;
+	public Set<InstalacionEjecutada> getInstalacionEjecutadas() {
+		return this.instalacionEjecutadas;
 	}
 
-	public void setHorarios(Set<Horario> horarios) {
-		this.horarios = horarios;
+	public void setInstalacionEjecutadas(
+			Set<InstalacionEjecutada> instalacionEjecutadas) {
+		this.instalacionEjecutadas = instalacionEjecutadas;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
@@ -976,6 +1080,25 @@ public class DatoBasico implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
+	public Set<AsistenciaPersonalEntrenamiento> getAsistenciaPersonalEntrenamientos() {
+		return this.asistenciaPersonalEntrenamientos;
+	}
+
+	public void setAsistenciaPersonalEntrenamientos(
+			Set<AsistenciaPersonalEntrenamiento> asistenciaPersonalEntrenamientos) {
+		this.asistenciaPersonalEntrenamientos = asistenciaPersonalEntrenamientos;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
+	public Set<Horario> getHorarios() {
+		return this.horarios;
+	}
+
+	public void setHorarios(Set<Horario> horarios) {
+		this.horarios = horarios;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
 	public Set<Familiar> getFamiliars() {
 		return this.familiars;
 	}
@@ -984,13 +1107,14 @@ public class DatoBasico implements java.io.Serializable {
 		this.familiars = familiars;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<RetiroTraslado> getRetiroTraslados() {
-		return this.retiroTraslados;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoMotivoRetiro")
+	public Set<RetiroTraslado> getRetiroTrasladosForCodigoMotivoRetiro() {
+		return this.retiroTrasladosForCodigoMotivoRetiro;
 	}
 
-	public void setRetiroTraslados(Set<RetiroTraslado> retiroTraslados) {
-		this.retiroTraslados = retiroTraslados;
+	public void setRetiroTrasladosForCodigoMotivoRetiro(
+			Set<RetiroTraslado> retiroTrasladosForCodigoMotivoRetiro) {
+		this.retiroTrasladosForCodigoMotivoRetiro = retiroTrasladosForCodigoMotivoRetiro;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoModalidad")
@@ -1021,6 +1145,16 @@ public class DatoBasico implements java.io.Serializable {
 	public void setActividadCalendarios(
 			Set<ActividadCalendario> actividadCalendarios) {
 		this.actividadCalendarios = actividadCalendarios;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoTipoPersona")
+	public Set<Persona> getPersonasForCodigoTipoPersona() {
+		return this.personasForCodigoTipoPersona;
+	}
+
+	public void setPersonasForCodigoTipoPersona(
+			Set<Persona> personasForCodigoTipoPersona) {
+		this.personasForCodigoTipoPersona = personasForCodigoTipoPersona;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
@@ -1090,14 +1224,14 @@ public class DatoBasico implements java.io.Serializable {
 		this.lineUpsForCodigoTipoMencion = lineUpsForCodigoTipoMencion;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
-	public Set<SeguridadFuncional> getSeguridadFuncionals() {
-		return this.seguridadFuncionals;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasicoByCodigoEstadoLineUp")
+	public Set<LineUp> getLineUpsForCodigoEstadoLineUp() {
+		return this.lineUpsForCodigoEstadoLineUp;
 	}
 
-	public void setSeguridadFuncionals(
-			Set<SeguridadFuncional> seguridadFuncionals) {
-		this.seguridadFuncionals = seguridadFuncionals;
+	public void setLineUpsForCodigoEstadoLineUp(
+			Set<LineUp> lineUpsForCodigoEstadoLineUp) {
+		this.lineUpsForCodigoEstadoLineUp = lineUpsForCodigoEstadoLineUp;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
@@ -1135,6 +1269,15 @@ public class DatoBasico implements java.io.Serializable {
 
 	public void setTareaActividads(Set<TareaActividad> tareaActividads) {
 		this.tareaActividads = tareaActividads;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")
+	public Set<PersonaNatural> getPersonaNaturals() {
+		return this.personaNaturals;
+	}
+
+	public void setPersonaNaturals(Set<PersonaNatural> personaNaturals) {
+		this.personaNaturals = personaNaturals;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "datoBasico")

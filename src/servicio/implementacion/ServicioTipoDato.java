@@ -9,7 +9,7 @@ import dao.general.DaoTipoDato;
 import modelo.TipoDato;
 
 public class ServicioTipoDato implements IServicioTipoDato {
-	
+
 	DaoTipoDato daoTipoDato;
 
 	@Override
@@ -49,7 +49,14 @@ public class ServicioTipoDato implements IServicioTipoDato {
 		// TODO Auto-generated method stub
 		return daoTipoDato.buscarPorTipo(td);
 	}
-	
-	
+
+	public List<TipoDato> buscarTrue(Boolean bool) {
+		return daoTipoDato.buscarTrue(bool);
+	}
+
+	public List<TipoDato> listarTipoDatos() {
+
+		return daoTipoDato.listarTipoDatos();
+	}
 
 }

@@ -1,5 +1,7 @@
 package dao.general;
 
+import java.util.List;
+
 import modelo.TipoDato;
 
 import org.hibernate.Criteria;
@@ -19,4 +21,24 @@ public class DaoTipoDato extends GenericDao {
 		c.add(Restrictions.eq("nombre", tipo));
 		return (TipoDato) c.list().get(0);
 	}
+	
+	public List<TipoDato> buscarTrue(Boolean bool) {
+		Session session = getSession();
+		Transaction tx =  session.beginTransaction();
+		Criteria c = getSession().createCriteria(TipoDato.class);
+		c.add(Restrictions.eq("tipo", bool));
+		return  c.list();
+	}
+	
+	public List<TipoDato> listarTipoDatos() {
+		// TODO Auto-generated method stub
+		Session session = getSession();
+		Transaction tx =  session.beginTransaction();
+		List list = getSession().createCriteria(TipoDato.class).list();
+		List<TipoDato> l = list;
+		getSession().flush();
+		return l;
+	}
+	
+	
 }

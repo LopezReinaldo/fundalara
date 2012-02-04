@@ -1,14 +1,17 @@
 package modelo;
 
-// Generated 31/12/2011 11:02:01 AM by Hibernate Tools 3.4.0.CR1
+// Generated 25/01/2012 10:43:43 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,23 +25,33 @@ public class Horario implements java.io.Serializable {
 
 	private int codigoHorario;
 	private DatoBasico datoBasico;
-	private PlanTemporada planTemporada;
-	private Date horInicio;
+	private Date horaInicio;
 	private Date horaFin;
 	private char estatus;
+	private Set<HorarioPlanTemporada> horarioPlanTemporadas = new HashSet<HorarioPlanTemporada>(
+			0);
 
 	public Horario() {
 	}
 
-	public Horario(int codigoHorario, DatoBasico datoBasico,
-			PlanTemporada planTemporada, Date horInicio, Date horaFin,
-			char estatus) {
+	public Horario(int codigoHorario, DatoBasico datoBasico, Date horaInicio,
+			Date horaFin, char estatus) {
 		this.codigoHorario = codigoHorario;
 		this.datoBasico = datoBasico;
-		this.planTemporada = planTemporada;
-		this.horInicio = horInicio;
+		this.horaInicio = horaInicio;
 		this.horaFin = horaFin;
 		this.estatus = estatus;
+	}
+
+	public Horario(int codigoHorario, DatoBasico datoBasico, Date horaInicio,
+			Date horaFin, char estatus,
+			Set<HorarioPlanTemporada> horarioPlanTemporadas) {
+		this.codigoHorario = codigoHorario;
+		this.datoBasico = datoBasico;
+		this.horaInicio = horaInicio;
+		this.horaFin = horaFin;
+		this.estatus = estatus;
+		this.horarioPlanTemporadas = horarioPlanTemporadas;
 	}
 
 	@Id
@@ -52,7 +65,7 @@ public class Horario implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "codigo_dato_basico", nullable = false)
+	@JoinColumn(name = "dia", nullable = false)
 	public DatoBasico getDatoBasico() {
 		return this.datoBasico;
 	}
@@ -61,24 +74,14 @@ public class Horario implements java.io.Serializable {
 		this.datoBasico = datoBasico;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "codigo_plan_temporada", nullable = false)
-	public PlanTemporada getPlanTemporada() {
-		return this.planTemporada;
-	}
-
-	public void setPlanTemporada(PlanTemporada planTemporada) {
-		this.planTemporada = planTemporada;
-	}
-
 	@Temporal(TemporalType.TIME)
-	@Column(name = "hor_inicio", nullable = false, length = 15)
-	public Date getHorInicio() {
-		return this.horInicio;
+	@Column(name = "hora_inicio", nullable = false, length = 15)
+	public Date getHoraInicio() {
+		return this.horaInicio;
 	}
 
-	public void setHorInicio(Date horInicio) {
-		this.horInicio = horInicio;
+	public void setHoraInicio(Date horaInicio) {
+		this.horaInicio = horaInicio;
 	}
 
 	@Temporal(TemporalType.TIME)
@@ -98,6 +101,16 @@ public class Horario implements java.io.Serializable {
 
 	public void setEstatus(char estatus) {
 		this.estatus = estatus;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "horario")
+	public Set<HorarioPlanTemporada> getHorarioPlanTemporadas() {
+		return this.horarioPlanTemporadas;
+	}
+
+	public void setHorarioPlanTemporadas(
+			Set<HorarioPlanTemporada> horarioPlanTemporadas) {
+		this.horarioPlanTemporadas = horarioPlanTemporadas;
 	}
 
 }

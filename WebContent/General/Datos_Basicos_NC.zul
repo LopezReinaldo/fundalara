@@ -3,7 +3,7 @@
 	<separator height="15px" />
 	<window closable="true" title="Datos Basicos" border="normal"
 		width="600px" height="" id="wndDatosBasicosNC"
-		apply="vista.general.Datos_Basicos_NC">
+		apply="/src/controlador/general/Datos_Basicos_NC.java">
 		<grid>
 			<rows>
 				<row>

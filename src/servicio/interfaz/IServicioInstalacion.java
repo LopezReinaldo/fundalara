@@ -2,6 +2,7 @@ package servicio.interfaz;
 
 import java.util.List;
 
+import modelo.DatoBasico;
 import modelo.Instalacion;
 
 public interface IServicioInstalacion {
@@ -15,5 +16,7 @@ public interface IServicioInstalacion {
 	public abstract Instalacion buscar(String instalacion);
 
 	public List<Instalacion> listarActivos();
+	
+	 public List<Instalacion> listarInstalacionPorTipo(DatoBasico tipo);
 
 }

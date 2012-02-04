@@ -3,6 +3,7 @@ package servicio.interfaz;
 import java.util.List;
 
 import modelo.PersonaJuridica;
+import modelo.PersonaNatural;
 import modelo.Personal;
 
 public interface IServicioPersonal {
@@ -16,6 +17,9 @@ public interface IServicioPersonal {
 	public abstract  List<Personal> listar ();
 	
 	public abstract List<Personal> listarActivos();
+	
+	
+	public abstract Personal buscarPorCodigo(PersonaNatural cedula);
 	
 	public abstract Personal buscarPorCodigo (Personal d);
 

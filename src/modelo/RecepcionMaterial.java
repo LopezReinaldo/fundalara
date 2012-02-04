@@ -1,6 +1,6 @@
 package modelo;
 
-// Generated 31/12/2011 11:02:01 AM by Hibernate Tools 3.4.0.CR1
+// Generated 25/01/2012 10:43:43 AM by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -51,8 +51,8 @@ public class RecepcionMaterial implements java.io.Serializable {
 
 	@EmbeddedId
 	@AttributeOverrides({
-			@AttributeOverride(name = "codigoNotaEntrega", column = @Column(name = "codigo_nota_entrega", nullable = false)),
-			@AttributeOverride(name = "codigoMaterial", column = @Column(name = "codigo_material", nullable = false)) })
+			@AttributeOverride(name = "codigoMaterial", column = @Column(name = "codigo_material", nullable = false)),
+			@AttributeOverride(name = "codigoNotaEntrega", column = @Column(name = "codigo_nota_entrega", nullable = false)) })
 	public RecepcionMaterialId getId() {
 		return this.id;
 	}

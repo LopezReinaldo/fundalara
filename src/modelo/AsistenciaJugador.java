@@ -1,6 +1,6 @@
 package modelo;
 
-// Generated 31/12/2011 11:02:01 AM by Hibernate Tools 3.4.0.CR1
+// Generated 25/01/2012 10:43:43 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,38 +22,42 @@ public class AsistenciaJugador implements java.io.Serializable {
 
 	private int codigoAsistencia;
 	private Roster roster;
+	private RosterPlan rosterPlan;
 	private SesionEjecutada sesionEjecutada;
 	private DatoBasico datoBasico;
 	private boolean asistencia;
 	private String observacion;
-	private Set<DesempeoJugador> desempeoJugadors = new HashSet<DesempeoJugador>(
+	private char estatus;
+	private Set<DesempennoJugador> desempennoJugadors = new HashSet<DesempennoJugador>(
 			0);
 
 	public AsistenciaJugador() {
 	}
 
-	public AsistenciaJugador(int codigoAsistencia, Roster roster,
+	public AsistenciaJugador(int codigoAsistencia,
 			SesionEjecutada sesionEjecutada, DatoBasico datoBasico,
-			boolean asistencia, String observacion) {
+			boolean asistencia, String observacion, char estatus) {
 		this.codigoAsistencia = codigoAsistencia;
-		this.roster = roster;
 		this.sesionEjecutada = sesionEjecutada;
 		this.datoBasico = datoBasico;
 		this.asistencia = asistencia;
 		this.observacion = observacion;
+		this.estatus = estatus;
 	}
 
 	public AsistenciaJugador(int codigoAsistencia, Roster roster,
-			SesionEjecutada sesionEjecutada, DatoBasico datoBasico,
-			boolean asistencia, String observacion,
-			Set<DesempeoJugador> desempeoJugadors) {
+			RosterPlan rosterPlan, SesionEjecutada sesionEjecutada,
+			DatoBasico datoBasico, boolean asistencia, String observacion,
+			char estatus, Set<DesempennoJugador> desempennoJugadors) {
 		this.codigoAsistencia = codigoAsistencia;
 		this.roster = roster;
+		this.rosterPlan = rosterPlan;
 		this.sesionEjecutada = sesionEjecutada;
 		this.datoBasico = datoBasico;
 		this.asistencia = asistencia;
 		this.observacion = observacion;
-		this.desempeoJugadors = desempeoJugadors;
+		this.estatus = estatus;
+		this.desempennoJugadors = desempennoJugadors;
 	}
 
 	@Id
@@ -67,13 +71,23 @@ public class AsistenciaJugador implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "codigo_roster", nullable = false)
+	@JoinColumn(name = "codigo_roster")
 	public Roster getRoster() {
 		return this.roster;
 	}
 
 	public void setRoster(Roster roster) {
 		this.roster = roster;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "codigo_roster_plan")
+	public RosterPlan getRosterPlan() {
+		return this.rosterPlan;
+	}
+
+	public void setRosterPlan(RosterPlan rosterPlan) {
+		this.rosterPlan = rosterPlan;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -114,13 +128,22 @@ public class AsistenciaJugador implements java.io.Serializable {
 		this.observacion = observacion;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "asistenciaJugador")
-	public Set<DesempeoJugador> getDesempeoJugadors() {
-		return this.desempeoJugadors;
+	@Column(name = "estatus", nullable = false, length = 1)
+	public char getEstatus() {
+		return this.estatus;
 	}
 
-	public void setDesempeoJugadors(Set<DesempeoJugador> desempeoJugadors) {
-		this.desempeoJugadors = desempeoJugadors;
+	public void setEstatus(char estatus) {
+		this.estatus = estatus;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "asistenciaJugador")
+	public Set<DesempennoJugador> getDesempennoJugadors() {
+		return this.desempennoJugadors;
+	}
+
+	public void setDesempennoJugadors(Set<DesempennoJugador> desempennoJugadors) {
+		this.desempennoJugadors = desempennoJugadors;
 	}
 
 }

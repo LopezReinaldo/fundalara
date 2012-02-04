@@ -10,6 +10,7 @@ import servicio.interfaz.IServicioPersona;
 
 public class ServicioPersona implements IServicioPersona {
 	DaoPersona daoPersona;
+
 	public DaoPersona getDaoPersona() {
 		return daoPersona;
 	}
@@ -47,17 +48,27 @@ public class ServicioPersona implements IServicioPersona {
 	}
 
 	@Override
-	public Persona buscarPorCodigo (Persona d) {
+	public Persona buscarPorCodigo(Persona d) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public Persona buscarPorCedulaRif(String s) {
 		return daoPersona.buscarPorCedulaRif(s);
 	}
-	
+
 	public Persona buscarPorTipoPersona(String s, Integer i) {
 		return daoPersona.buscarPorTipoPersona(s, i);
 	}
 
+	@Override
+	public List<Persona> listarPorTipos(String tipoPersona) {
+
+		return daoPersona.listarPorTipo(tipoPersona);
+	}
+
+	@Override
+	public Persona buscarPorCodigo(String Cedula) {
+		return this.daoPersona.buscarPorCedulaRif(Cedula);
+	}
 }

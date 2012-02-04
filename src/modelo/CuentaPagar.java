@@ -1,6 +1,6 @@
 package modelo;
 
-// Generated 31/12/2011 11:02:01 AM by Hibernate Tools 3.4.0.CR1
+// Generated 25/01/2012 10:43:43 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,7 +27,7 @@ public class CuentaPagar implements java.io.Serializable {
 	private DatoBasico datoBasicoByCodigoTipoEgreso;
 	private Persona persona;
 	private DatoBasico datoBasicoByCodigoTipoDocumento;
-	private Date numeroDocumento;
+	private Date fechaEmision;
 	private double montoTotal;
 	private Date fechaVencimiento;
 	private String concepto;
@@ -40,39 +39,35 @@ public class CuentaPagar implements java.io.Serializable {
 	private Set<NotaEntrega> notaEntregas = new HashSet<NotaEntrega>(0);
 	private Set<CuentaPagarMaterial> cuentaPagarMaterials = new HashSet<CuentaPagarMaterial>(
 			0);
-	private Nomina nomina;
 
 	public CuentaPagar() {
 	}
 
 	public CuentaPagar(String origen, DatoBasico datoBasicoByCodigoTipoEgreso,
-			Persona persona, DatoBasico datoBasicoByCodigoTipoDocumento,
-			Date numeroDocumento, double montoTotal, Date fechaVencimiento,
-			String concepto, char estado, char estatus) {
+			DatoBasico datoBasicoByCodigoTipoDocumento, Date fechaEmision,
+			double montoTotal, Date fechaVencimiento, char estado, char estatus) {
 		this.origen = origen;
 		this.datoBasicoByCodigoTipoEgreso = datoBasicoByCodigoTipoEgreso;
-		this.persona = persona;
 		this.datoBasicoByCodigoTipoDocumento = datoBasicoByCodigoTipoDocumento;
-		this.numeroDocumento = numeroDocumento;
+		this.fechaEmision = fechaEmision;
 		this.montoTotal = montoTotal;
 		this.fechaVencimiento = fechaVencimiento;
-		this.concepto = concepto;
 		this.estado = estado;
 		this.estatus = estatus;
 	}
 
 	public CuentaPagar(String origen, DatoBasico datoBasicoByCodigoTipoEgreso,
 			Persona persona, DatoBasico datoBasicoByCodigoTipoDocumento,
-			Date numeroDocumento, double montoTotal, Date fechaVencimiento,
+			Date fechaEmision, double montoTotal, Date fechaVencimiento,
 			String concepto, char estado, char estatus, Double subtotal,
 			Set<EgresoCuentaPagar> egresoCuentaPagars,
 			Set<NotaEntrega> notaEntregas,
-			Set<CuentaPagarMaterial> cuentaPagarMaterials, Nomina nomina) {
+			Set<CuentaPagarMaterial> cuentaPagarMaterials) {
 		this.origen = origen;
 		this.datoBasicoByCodigoTipoEgreso = datoBasicoByCodigoTipoEgreso;
 		this.persona = persona;
 		this.datoBasicoByCodigoTipoDocumento = datoBasicoByCodigoTipoDocumento;
-		this.numeroDocumento = numeroDocumento;
+		this.fechaEmision = fechaEmision;
 		this.montoTotal = montoTotal;
 		this.fechaVencimiento = fechaVencimiento;
 		this.concepto = concepto;
@@ -82,7 +77,6 @@ public class CuentaPagar implements java.io.Serializable {
 		this.egresoCuentaPagars = egresoCuentaPagars;
 		this.notaEntregas = notaEntregas;
 		this.cuentaPagarMaterials = cuentaPagarMaterials;
-		this.nomina = nomina;
 	}
 
 	@Id
@@ -107,7 +101,7 @@ public class CuentaPagar implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cedula_rif", nullable = false)
+	@JoinColumn(name = "cedula_rif")
 	public Persona getPersona() {
 		return this.persona;
 	}
@@ -128,13 +122,13 @@ public class CuentaPagar implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "numero_documento", nullable = false, length = 13)
-	public Date getNumeroDocumento() {
-		return this.numeroDocumento;
+	@Column(name = "fecha_emision", nullable = false, length = 13)
+	public Date getFechaEmision() {
+		return this.fechaEmision;
 	}
 
-	public void setNumeroDocumento(Date numeroDocumento) {
-		this.numeroDocumento = numeroDocumento;
+	public void setFechaEmision(Date fechaEmision) {
+		this.fechaEmision = fechaEmision;
 	}
 
 	@Column(name = "monto_total", nullable = false, precision = 17, scale = 17)
@@ -156,7 +150,7 @@ public class CuentaPagar implements java.io.Serializable {
 		this.fechaVencimiento = fechaVencimiento;
 	}
 
-	@Column(name = "concepto", nullable = false)
+	@Column(name = "concepto")
 	public String getConcepto() {
 		return this.concepto;
 	}
@@ -218,15 +212,6 @@ public class CuentaPagar implements java.io.Serializable {
 	public void setCuentaPagarMaterials(
 			Set<CuentaPagarMaterial> cuentaPagarMaterials) {
 		this.cuentaPagarMaterials = cuentaPagarMaterials;
-	}
-
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "cuentaPagar")
-	public Nomina getNomina() {
-		return this.nomina;
-	}
-
-	public void setNomina(Nomina nomina) {
-		this.nomina = nomina;
 	}
 
 }

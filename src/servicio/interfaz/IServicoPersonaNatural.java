@@ -19,5 +19,9 @@ public interface IServicoPersonaNatural {
 	
 	public abstract PersonaNatural buscarPorCodigo (PersonaNatural d);
 
+	PersonaNatural buscarPorCodigo(String cedula);
+
+	PersonaNatural buscarPorCodigo(Persona d);
+
 
 }

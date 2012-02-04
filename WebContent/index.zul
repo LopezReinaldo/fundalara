@@ -4,10 +4,14 @@
 	public void enlace(String cad) {
 		cuerpo.setSrc(cad);
 	}
-	
-	public void agenda(){
+	public void agenda() {
 		divMenu.setVisible(false);
 		enlace("/General/agenda.zul");
+	}
+	
+	public void agenda2() {
+		divMenu.setVisible(false);
+		enlace("/General/agenda2.zul");
 	}
 ]]></zscript>
 	<style>
@@ -21,8 +25,7 @@
 					<tab label="Registros" tooltip="nombre" />
 					<tab label="Funcionalidades Deportivas" />
 					<tab label="Funcionalidades Operativas" />
-					<tab label="Agenda"
-						onClick='agenda()' />
+					<tab label="Agenda" />
 					<tab label="Reportes" />
 					<tab label="Configuraciones" />
 
@@ -35,7 +38,7 @@
 									<treerow>
 										<treecell
 											label="Simples/Unitarios"
-											onClick='enlace("General/Datos_Basicos_NC.zul")' />
+											onClick='enlace("General/frmDatosBasicos.zul")' />
 									</treerow>
 								</treeitem>
 								<treeitem open="false">
@@ -190,11 +193,11 @@
 															label="Recaudos"
 															onClick='enlace("Jugador/Vistas/configurarRecaudo.zul")' />
 													</treerow>
-												</treeitem>												
+												</treeitem>
 												<treeitem>
 													<treerow>
 														<treecell
-															label="Materiales" 
+															label="Materiales"
 															onClick='enlace("Logistica/Vistas/frmRegistrarMaterial.zul")' />
 													</treerow>
 												</treeitem>
@@ -370,21 +373,21 @@
 													label="Indicadores de Desempeño"
 													onClick='enlace("/Competencias/Vistas/FrmIndicadores.zul")' />
 											</treerow>
-										</treeitem>										
+										</treeitem>
 										<treeitem open="false">
 											<treerow>
 												<treecell
 													label="Calendario"
 													onClick='enlace("/Competencias/Vistas/FrmCalendario.zul")' />
 											</treerow>
-										</treeitem>										
+										</treeitem>
 										<treeitem open="false">
 											<treerow>
 												<treecell
 													label="Hospedaje de Jugadores"
 													onClick='enlace("Jugador/Vistas/registrarHospedaje.zul")' />
 											</treerow>
-										</treeitem>										
+										</treeitem>
 										<treeitem open="false">
 											<treerow>
 												<treecell
@@ -462,8 +465,22 @@
 										<treeitem open="false">
 											<treerow>
 												<treecell
-													label="Solicitudes de Mantenimiento" 
+													label="Bandeja de Solicitudes de Mantenimiento"
+													onClick='enlace("Logistica/Vistas/frmSolicitudesMantenimiento.zul")' />
+											</treerow>
+										</treeitem>
+										<treeitem open="false">
+											<treerow>
+												<treecell
+													label="Solicitud de Mantenimiento"
 													onClick='enlace("Logistica/Vistas/frmSolicitudMantenimiento.zul")' />
+											</treerow>
+										</treeitem>
+										<treeitem open="false">
+											<treerow>
+												<treecell
+													label="Préstamo/Devolución Materiales"
+													onClick='enlace("Logistica/Vistas/frmPrestamoDevolucion.zul")' />
 											</treerow>
 										</treeitem>
 										<treeitem open="false">
@@ -473,20 +490,48 @@
 													onClick='enlace("Logistica/Vistas/frmRecepcionMaterial.zul")' />
 											</treerow>
 										</treeitem>
-										<treeitem open="false">
-											<treerow>
-												<treecell
-													label="Préstamo/Devolución de Materiales"
-													onClick='enlace("Logistica/Vistas/frmPrestamoDevolucion.zul")' />
-											</treerow>
-										</treeitem>
 									</treechildren>
 								</treeitem>
 							</treechildren>
 						</tree>
 					</tabpanel>
-					<tabpanel>
+					
+						<tabpanel>
+					
 						<tree>
+							<treechildren>
+<!-- 								<treeitem open="false"> -->
+<!-- 									<treerow> -->
+<!-- 										<treecell id="mnuAgendaEntrenamiento" label="Entrenamiento" onClick="mostrarAgenda()" /> -->
+<!-- 									</treerow>							 -->
+<!-- 								</treeitem> -->
+<!-- 								<treeitem open="false"> -->
+<!-- 									<treerow> -->
+<!-- 										<treecell id="mnuAgendaCompetencia" -->
+<!-- 											label="Competencia" onClick="mostrarAgenda()"/> -->
+<!-- 									</treerow>								 -->
+<!-- 								</treeitem> -->
+							<treeitem open="false">
+									<treerow>
+										<treecell
+											label="Actividades Complementarias" onClick="agenda()"/> <!--la verdad no que nombre necesita cronos aqui -->
+									</treerow>
+							 </treeitem>
+							 <treeitem open="false">
+									<treerow>
+										<treecell
+											label="Mantenimientos" onClick="agenda2()"/> <!--la verdad no que nombre necesita cronos aqui -->
+									</treerow>
+							 </treeitem>
+							 </treechildren>
+						</tree>
+					
+					</tabpanel>
+					
+					
+					<tabpanel>				
+					
+						<tree visible="false">
 							<treechildren>
 								<treeitem open="false">
 									<treerow>
@@ -523,7 +568,7 @@
 											<treerow>
 												<treecell
 													label="Logistica" />
-											</treerow>					
+											</treerow>
 										</treeitem>
 									</treechildren>
 								</treeitem>
@@ -593,7 +638,7 @@
 											<treerow>
 												<treecell
 													label="Logistica" />
-											</treerow>											
+											</treerow>
 										</treeitem>
 									</treechildren>
 
@@ -642,13 +687,13 @@
 											<treerow>
 												<treecell
 													label="Logistica" />
-											</treerow>											
+											</treerow>
 										</treeitem>
 									</treechildren>
 								</treeitem>
 							</treechildren>
 						</tree>
-					</tabpanel>
+					</tabpanel>				
 					<tabpanel>
 						<tree>
 							<treechildren>
@@ -660,8 +705,7 @@
 								</treeitem>
 								<treeitem open="false">
 									<treerow>
-										<treecell
-											label="Especiales" />
+										<treecell label="Especiales" />
 									</treerow>
 								</treeitem>
 								<treeitem open="false">
@@ -865,7 +909,7 @@
 													onClick='enlace("Administracion/Vistas/FrmActualizarConcepto.zul")' />
 											</treerow>
 										</treeitem>
-										<treeitem >
+										<treeitem>
 											<treerow>
 												<treecell
 													label="Seguridad" />
@@ -897,7 +941,7 @@
 												</treeitem>
 											</treechildren>
 										</treeitem>
-										
+
 									</treechildren>
 								</treeitem>
 								<treeitem open="false">

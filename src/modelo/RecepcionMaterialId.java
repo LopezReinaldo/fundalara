@@ -1,6 +1,6 @@
 package modelo;
 
-// Generated 31/12/2011 11:02:01 AM by Hibernate Tools 3.4.0.CR1
+// Generated 25/01/2012 10:43:43 AM by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -11,23 +11,14 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class RecepcionMaterialId implements java.io.Serializable {
 
-	private int codigoNotaEntrega;
 	private int codigoMaterial;
+	private int codigoNotaEntrega;
 
 	public RecepcionMaterialId() {
 	}
 
-	public RecepcionMaterialId(int codigoNotaEntrega, int codigoMaterial) {
-		this.codigoNotaEntrega = codigoNotaEntrega;
+	public RecepcionMaterialId(int codigoMaterial, int codigoNotaEntrega) {
 		this.codigoMaterial = codigoMaterial;
-	}
-
-	@Column(name = "codigo_nota_entrega", nullable = false)
-	public int getCodigoNotaEntrega() {
-		return this.codigoNotaEntrega;
-	}
-
-	public void setCodigoNotaEntrega(int codigoNotaEntrega) {
 		this.codigoNotaEntrega = codigoNotaEntrega;
 	}
 
@@ -40,6 +31,15 @@ public class RecepcionMaterialId implements java.io.Serializable {
 		this.codigoMaterial = codigoMaterial;
 	}
 
+	@Column(name = "codigo_nota_entrega", nullable = false)
+	public int getCodigoNotaEntrega() {
+		return this.codigoNotaEntrega;
+	}
+
+	public void setCodigoNotaEntrega(int codigoNotaEntrega) {
+		this.codigoNotaEntrega = codigoNotaEntrega;
+	}
+
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -49,15 +49,16 @@ public class RecepcionMaterialId implements java.io.Serializable {
 			return false;
 		RecepcionMaterialId castOther = (RecepcionMaterialId) other;
 
-		return (this.getCodigoNotaEntrega() == castOther.getCodigoNotaEntrega())
-				&& (this.getCodigoMaterial() == castOther.getCodigoMaterial());
+		return (this.getCodigoMaterial() == castOther.getCodigoMaterial())
+				&& (this.getCodigoNotaEntrega() == castOther
+						.getCodigoNotaEntrega());
 	}
 
 	public int hashCode() {
 		int result = 17;
 
-		result = 37 * result + this.getCodigoNotaEntrega();
 		result = 37 * result + this.getCodigoMaterial();
+		result = 37 * result + this.getCodigoNotaEntrega();
 		return result;
 	}
 

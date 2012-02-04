@@ -1,6 +1,6 @@
 package modelo;
 
-// Generated 31/12/2011 11:02:01 AM by Hibernate Tools 3.4.0.CR1
+// Generated 25/01/2012 10:43:43 AM by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -22,20 +22,32 @@ public class DocumentoAcreedorMaterial implements java.io.Serializable {
 	private DocumentoAcreedorMaterialId id;
 	private DocumentoAcreedor documentoAcreedor;
 	private Material material;
-	private int cantidad;
+	private Double montoEstimado;
 	private char estatus;
+	private int cantidad;
 
 	public DocumentoAcreedorMaterial() {
 	}
 
 	public DocumentoAcreedorMaterial(DocumentoAcreedorMaterialId id,
 			DocumentoAcreedor documentoAcreedor, Material material,
-			int cantidad, char estatus) {
+			char estatus, int cantidad) {
 		this.id = id;
 		this.documentoAcreedor = documentoAcreedor;
 		this.material = material;
-		this.cantidad = cantidad;
 		this.estatus = estatus;
+		this.cantidad = cantidad;
+	}
+
+	public DocumentoAcreedorMaterial(DocumentoAcreedorMaterialId id,
+			DocumentoAcreedor documentoAcreedor, Material material,
+			Double montoEstimado, char estatus, int cantidad) {
+		this.id = id;
+		this.documentoAcreedor = documentoAcreedor;
+		this.material = material;
+		this.montoEstimado = montoEstimado;
+		this.estatus = estatus;
+		this.cantidad = cantidad;
 	}
 
 	@EmbeddedId
@@ -70,13 +82,13 @@ public class DocumentoAcreedorMaterial implements java.io.Serializable {
 		this.material = material;
 	}
 
-	@Column(name = "cantidad", nullable = false)
-	public int getCantidad() {
-		return this.cantidad;
+	@Column(name = "monto_estimado", precision = 17, scale = 17)
+	public Double getMontoEstimado() {
+		return this.montoEstimado;
 	}
 
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
+	public void setMontoEstimado(Double montoEstimado) {
+		this.montoEstimado = montoEstimado;
 	}
 
 	@Column(name = "estatus", nullable = false, length = 1)
@@ -86,6 +98,15 @@ public class DocumentoAcreedorMaterial implements java.io.Serializable {
 
 	public void setEstatus(char estatus) {
 		this.estatus = estatus;
+	}
+
+	@Column(name = "cantidad", nullable = false)
+	public int getCantidad() {
+		return this.cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
 	}
 
 }

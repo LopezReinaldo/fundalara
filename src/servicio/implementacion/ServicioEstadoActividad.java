@@ -1,6 +1,7 @@
 package servicio.implementacion;
 
 import dao.general.DaoEstadoActividad;
+import modelo.Actividad;
 import modelo.EstadoActividad;
 import servicio.interfaz.IServicioEstadoActividad;
 
@@ -34,4 +35,8 @@ public class ServicioEstadoActividad implements IServicioEstadoActividad {
 		this.daoEstadoActividad = daoEstadoActividad;
 	}
 
+	@Override
+	public EstadoActividad buscar(Actividad a) {
+		return this.daoEstadoActividad.buscar(a);
+	}
 }

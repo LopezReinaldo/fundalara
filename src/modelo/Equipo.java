@@ -1,6 +1,6 @@
 package modelo;
 
-// Generated 31/12/2011 11:02:01 AM by Hibernate Tools 3.4.0.CR1
+// Generated 25/01/2012 10:43:43 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,11 +23,20 @@ public class Equipo implements java.io.Serializable {
 	private int codigoEquipo;
 	private Categoria categoria;
 	private Divisa divisa;
-	private DatoBasico datoBasico;
+	private DatoBasico datoBasicoByCodigoClasificacion;
+	private DatoBasico datoBasicoByCodigoTipoLapso;
 	private String nombre;
 	private char estatus;
+	private int minimoJugador;
+	private int maximoJugador;
 	private Set<PersonalEquipo> personalEquipos = new HashSet<PersonalEquipo>(0);
+	private Set<RosterCompetencia> rosterCompetencias = new HashSet<RosterCompetencia>(
+			0);
 	private Set<Roster> rosters = new HashSet<Roster>(0);
+	private Set<HorarioPlanTemporada> horarioPlanTemporadas = new HashSet<HorarioPlanTemporada>(
+			0);
+	private Set<JugadorForaneo> jugadorForaneos = new HashSet<JugadorForaneo>(0);
+	private Set<RosterPlan> rosterPlans = new HashSet<RosterPlan>(0);
 	private Set<EquipoCompetencia> equipoCompetencias = new HashSet<EquipoCompetencia>(
 			0);
 	private Set<TestEvaluativo> testEvaluativos = new HashSet<TestEvaluativo>(0);
@@ -40,18 +49,26 @@ public class Equipo implements java.io.Serializable {
 	}
 
 	public Equipo(int codigoEquipo, Categoria categoria, Divisa divisa,
-			DatoBasico datoBasico, String nombre, char estatus) {
+			DatoBasico datoBasicoByCodigoTipoLapso, String nombre,
+			char estatus, int minimoJugador, int maximoJugador) {
 		this.codigoEquipo = codigoEquipo;
 		this.categoria = categoria;
 		this.divisa = divisa;
-		this.datoBasico = datoBasico;
+		this.datoBasicoByCodigoTipoLapso = datoBasicoByCodigoTipoLapso;
 		this.nombre = nombre;
 		this.estatus = estatus;
+		this.minimoJugador = minimoJugador;
+		this.maximoJugador = maximoJugador;
 	}
 
 	public Equipo(int codigoEquipo, Categoria categoria, Divisa divisa,
-			DatoBasico datoBasico, String nombre, char estatus,
-			Set<PersonalEquipo> personalEquipos, Set<Roster> rosters,
+			DatoBasico datoBasicoByCodigoClasificacion,
+			DatoBasico datoBasicoByCodigoTipoLapso, String nombre,
+			char estatus, int minimoJugador, int maximoJugador,
+			Set<PersonalEquipo> personalEquipos,
+			Set<RosterCompetencia> rosterCompetencias, Set<Roster> rosters,
+			Set<HorarioPlanTemporada> horarioPlanTemporadas,
+			Set<JugadorForaneo> jugadorForaneos, Set<RosterPlan> rosterPlans,
 			Set<EquipoCompetencia> equipoCompetencias,
 			Set<TestEvaluativo> testEvaluativos,
 			Set<SesionEjecutada> sesionEjecutadas, Set<Sesion> sesions,
@@ -59,11 +76,18 @@ public class Equipo implements java.io.Serializable {
 		this.codigoEquipo = codigoEquipo;
 		this.categoria = categoria;
 		this.divisa = divisa;
-		this.datoBasico = datoBasico;
+		this.datoBasicoByCodigoClasificacion = datoBasicoByCodigoClasificacion;
+		this.datoBasicoByCodigoTipoLapso = datoBasicoByCodigoTipoLapso;
 		this.nombre = nombre;
 		this.estatus = estatus;
+		this.minimoJugador = minimoJugador;
+		this.maximoJugador = maximoJugador;
 		this.personalEquipos = personalEquipos;
+		this.rosterCompetencias = rosterCompetencias;
 		this.rosters = rosters;
+		this.horarioPlanTemporadas = horarioPlanTemporadas;
+		this.jugadorForaneos = jugadorForaneos;
+		this.rosterPlans = rosterPlans;
 		this.equipoCompetencias = equipoCompetencias;
 		this.testEvaluativos = testEvaluativos;
 		this.sesionEjecutadas = sesionEjecutadas;
@@ -102,13 +126,25 @@ public class Equipo implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "codigo_clasificacion", nullable = false)
-	public DatoBasico getDatoBasico() {
-		return this.datoBasico;
+	@JoinColumn(name = "codigo_clasificacion")
+	public DatoBasico getDatoBasicoByCodigoClasificacion() {
+		return this.datoBasicoByCodigoClasificacion;
 	}
 
-	public void setDatoBasico(DatoBasico datoBasico) {
-		this.datoBasico = datoBasico;
+	public void setDatoBasicoByCodigoClasificacion(
+			DatoBasico datoBasicoByCodigoClasificacion) {
+		this.datoBasicoByCodigoClasificacion = datoBasicoByCodigoClasificacion;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "codigo_tipo_lapso", nullable = false)
+	public DatoBasico getDatoBasicoByCodigoTipoLapso() {
+		return this.datoBasicoByCodigoTipoLapso;
+	}
+
+	public void setDatoBasicoByCodigoTipoLapso(
+			DatoBasico datoBasicoByCodigoTipoLapso) {
+		this.datoBasicoByCodigoTipoLapso = datoBasicoByCodigoTipoLapso;
 	}
 
 	@Column(name = "nombre", nullable = false)
@@ -129,6 +165,24 @@ public class Equipo implements java.io.Serializable {
 		this.estatus = estatus;
 	}
 
+	@Column(name = "minimo_jugador", nullable = false)
+	public int getMinimoJugador() {
+		return this.minimoJugador;
+	}
+
+	public void setMinimoJugador(int minimoJugador) {
+		this.minimoJugador = minimoJugador;
+	}
+
+	@Column(name = "maximo_jugador", nullable = false)
+	public int getMaximoJugador() {
+		return this.maximoJugador;
+	}
+
+	public void setMaximoJugador(int maximoJugador) {
+		this.maximoJugador = maximoJugador;
+	}
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "equipo")
 	public Set<PersonalEquipo> getPersonalEquipos() {
 		return this.personalEquipos;
@@ -139,12 +193,49 @@ public class Equipo implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "equipo")
+	public Set<RosterCompetencia> getRosterCompetencias() {
+		return this.rosterCompetencias;
+	}
+
+	public void setRosterCompetencias(Set<RosterCompetencia> rosterCompetencias) {
+		this.rosterCompetencias = rosterCompetencias;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "equipo")
 	public Set<Roster> getRosters() {
 		return this.rosters;
 	}
 
 	public void setRosters(Set<Roster> rosters) {
 		this.rosters = rosters;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "equipo")
+	public Set<HorarioPlanTemporada> getHorarioPlanTemporadas() {
+		return this.horarioPlanTemporadas;
+	}
+
+	public void setHorarioPlanTemporadas(
+			Set<HorarioPlanTemporada> horarioPlanTemporadas) {
+		this.horarioPlanTemporadas = horarioPlanTemporadas;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "equipo")
+	public Set<JugadorForaneo> getJugadorForaneos() {
+		return this.jugadorForaneos;
+	}
+
+	public void setJugadorForaneos(Set<JugadorForaneo> jugadorForaneos) {
+		this.jugadorForaneos = jugadorForaneos;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "equipo")
+	public Set<RosterPlan> getRosterPlans() {
+		return this.rosterPlans;
+	}
+
+	public void setRosterPlans(Set<RosterPlan> rosterPlans) {
+		this.rosterPlans = rosterPlans;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "equipo")

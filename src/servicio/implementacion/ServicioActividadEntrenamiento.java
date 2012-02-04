@@ -66,7 +66,14 @@ public class ServicioActividadEntrenamiento implements
 	@Override
 	public ActividadEntrenamiento buscarPorCodigo(Integer i) {
 		// TODO Auto-generated method stub
-		return daoActividadEntrenamiento.buscarporCodigo(i);
+		return null;
+	}
+
+	@Override
+	public ActividadEntrenamiento buscarClaveForegn(Categoria c, DatoBasico f,
+			int idActividad) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

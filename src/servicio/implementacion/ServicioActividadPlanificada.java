@@ -35,6 +35,9 @@ public class ServicioActividadPlanificada implements
 	public List<ActividadPlanificada> listar() {	
 		return daoActividadPlanificada.listar(ActividadPlanificada.class);
 	}
+	
+	
+	
 
 	public DaoActividadPlanificada getDaoActividadPlanificada() {
 		return daoActividadPlanificada;

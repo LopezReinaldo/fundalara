@@ -4,6 +4,7 @@ import java.util.List;
 
 import servicio.interfaz.IServicioMaterial;
 
+import modelo.DatoBasico;
 import modelo.Material;
 import dao.general.DaoMaterial;
 
@@ -53,6 +54,24 @@ public class ServicioMaterial implements IServicioMaterial {
 	
 	public int generarCodigo(){		
 		return daoMaterial.generarCodigo(Material.class);
+	}
+
+	@Override
+	public List<Material> listarMateriales() {
+		// TODO Auto-generated method stub
+		return daoMaterial.listarMateriales();
+	}
+
+	@Override
+	public List<Material> listarMaterialPorTipo(DatoBasico tipoMaterial) {
+		// TODO Auto-generated method stub
+		return daoMaterial.listarMaterialesPorTipo(tipoMaterial);
+	}
+
+	@Override
+	public List<Material> buscarDatosPorRelacion(DatoBasico m) {
+		// TODO Auto-generated method stub
+		return daoMaterial.buscarPorRelacion(m);
 	}
 
 }

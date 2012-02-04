@@ -5,12 +5,14 @@ import java.util.List;
 import dao.general.DaoPersonaNatural;
 
 import modelo.Nomina;
+import modelo.Persona;
 import modelo.PersonaNatural;
 import servicio.interfaz.IServicoPersonaNatural;
 
 public class ServicioPersonaNatural implements IServicoPersonaNatural {
 
 	DaoPersonaNatural daoPersonaNatural;
+
 	public DaoPersonaNatural getDaoPersonaNatural() {
 		return daoPersonaNatural;
 	}
@@ -48,7 +50,17 @@ public class ServicioPersonaNatural implements IServicoPersonaNatural {
 	}
 
 	@Override
-	public PersonaNatural buscarPorCodigo (PersonaNatural d) {
+	public PersonaNatural buscarPorCodigo(String cedula) {
+		return this.daoPersonaNatural.buscar(cedula);
+	}
+
+	@Override
+	public PersonaNatural buscarPorCodigo(Persona d) {
+		return this.daoPersonaNatural.buscar(d.getCedulaRif());
+	}
+
+	@Override
+	public PersonaNatural buscarPorCodigo(PersonaNatural d) {
 		// TODO Auto-generated method stub
 		return null;
 	}

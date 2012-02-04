@@ -7,10 +7,15 @@
 <?component name="toolbar" macro-uri="Calendario/toolbar.zul" inline="true"?>
 <?component name="divtab" macro-uri="Calendario/divtab.zul" inline="true"?>
 <?component name="divarrow" macro-uri="Calendario/divarrow.zul" inline="true"?>
+<?component name="index" macro-uri="../index.zul" inline="true"?>
+<!-- <?component name="prueba" macro-uri="../Logistica/Vistas/frmPlanificarMantenimiento.zul" inline="true"?> -->
 <?page title="Calendario" contentType="text/html;charset=UTF-8"?>
 <zk>
-	<window border="none" mode="embedded" 
-		closable="true" width="980px" height="600px"
+	<div id="menu" visible="false">
+		<index />
+	</div>
+	<window border="none" mode="embedded"  
+		closable="true" width="980px" height="600px" onClose="menu.visible=true"
 		apply="controlador.general.Agenda" id="wndCalendario">
 		<caption id="titulo" label="Calendario" >
 			<label sclass="labels" id="rangoCalendario"></label>
@@ -25,8 +30,8 @@
 							<div>
 								<button mold="os" label="Hoy" id="hoy"/>
 								<span id="FDOW">
-									<label value="Filtrar por:" />
-									<listbox mold="select" 
+									<label value="Filtrar por:" visible="false"/>
+									<listbox mold="select"  visible="false"
 										id="lsbxFiltro">
 										<listitem  id="item" label="--Seleccione--"/>
 										<listitem label="${each}"
@@ -51,10 +56,11 @@
 				<calendario/>
 			</center>
 		</borderlayout>
+<!-- 		<prueba/> -->
 		<popup id="updateMsg" width="320px">
 			<label id="popupLabel" />
 			<timer id="timer" delay="1000" running="false"
 				onTimer="updateMsg.close()" />
-		</popup>
-	</window>
+		</popup>		
+	</window>	
 </zk>

@@ -18,64 +18,68 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Clase para manejar las operaciones basicas mediante session factory
+ * 
  * @author Eduardo Ochoa
- * @version 1.0 
+ * @version 1.0
  * @email elos3000@gmail.com
  */
 public class GenericDao {
-	
+
 	Session session;
-    public void guardar(Object o) {		
+
+	public void guardar(Object o) {
 		Session session = getSession();
-		Transaction tx =  session.beginTransaction();
+		Transaction tx = session.beginTransaction();
 		session.saveOrUpdate(o);
-		tx.commit();		
+		tx.commit();
 	}
 
 	public void actualizar(Object o) {
 		Session session = getSession();
-		Transaction tx =  session.beginTransaction();
+		Transaction tx = session.beginTransaction();
 		session.saveOrUpdate(o);
 		tx.commit();
 	}
-	
+
 	public void eliminar(Object o) {
 		Session session = getSession();
-		Transaction tx =  session.beginTransaction();
+		Transaction tx = session.beginTransaction();
 		session.saveOrUpdate(o);
-	    tx.commit();
+		tx.commit();
 	}
-	
+
 	public List listar(Class o) {
 		Session session = getSession();
-		Transaction tx =  session.beginTransaction();
+		Transaction tx = session.beginTransaction();
 		List lista = session.createCriteria(o).list();
+		// tx.commit();
 		return lista;
 	}
-	
-	public Session getSession(){
-	if (session == null){
+
+	public Session getSession() {
+		if (session == null) {
 			return session = SessionManager.getSession();
-	}else{
-		  if(!session.isOpen())
-		      session = SessionManager.getSession();		    
-	      return session;	
+		} else {
+			if (!session.isOpen())
+				session = SessionManager.getSession();
+			return session;
 		}
 	}
-	
-	public List listarActivos(Class d ){
-		//Permite buscar todas las divisas con estatus = 'A'
+
+	public List listarActivos(Class d) {
+		// Permite buscar todas las divisas con estatus = 'A'
 		Session session = getSession();
 		Transaction tx = session.beginTransaction();
 		Criteria c = getSession().createCriteria(d);
-		List lista = c.add(Restrictions.eq("estatus",'A')).list();
+		List lista = c.add(Restrictions.eq("estatus", 'A')).list();
+		// tx.commit();
+
 		return lista;
 	}
-	
+
 	public int generarCodigo(Class o) {
 		Session session = getSession();
-		Transaction tx =  session.beginTransaction();
-		return session.createCriteria(o).list().size()+1;
+		Transaction tx = session.beginTransaction();
+		return session.createCriteria(o).list().size() + 1;
 	}
 }
-

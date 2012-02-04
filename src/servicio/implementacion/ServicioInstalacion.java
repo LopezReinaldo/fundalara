@@ -7,6 +7,7 @@ import servicio.interfaz.IServicioInstalacion;
 
 import dao.general.DaoInstalacion;
 import modelo.Almacen;
+import modelo.DatoBasico;
 import modelo.Instalacion;
 
 public class ServicioInstalacion implements IServicioInstalacion {
@@ -61,5 +62,13 @@ public class ServicioInstalacion implements IServicioInstalacion {
 	public List<Instalacion> listarActivos() {
 		return daoInstalacion.listarActivos(Instalacion.class);
 	}
+
+	@Override
+	public List<Instalacion> listarInstalacionPorTipo(DatoBasico tipo) {
+		// TODO Auto-generated method stub
+		return daoInstalacion.listarInstalacionPorTipo(tipo);
+	}
+	
+	
 
 }

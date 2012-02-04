@@ -1,6 +1,6 @@
 package modelo;
 
-// Generated 31/12/2011 11:02:01 AM by Hibernate Tools 3.4.0.CR1
+// Generated 25/01/2012 10:43:43 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -27,28 +27,28 @@ public class NotaEntrega implements java.io.Serializable {
 	private DocumentoAcreedor documentoAcreedor;
 	private CuentaPagar cuentaPagar;
 	private Date fechaRecepcion;
+	private char estatus;
 	private Set<RecepcionMaterial> recepcionMaterials = new HashSet<RecepcionMaterial>(
 			0);
 
 	public NotaEntrega() {
 	}
 
-	public NotaEntrega(int codigoNotaEntrega,
-			DocumentoAcreedor documentoAcreedor, CuentaPagar cuentaPagar,
-			Date fechaRecepcion) {
+	public NotaEntrega(int codigoNotaEntrega, Date fechaRecepcion, char estatus) {
 		this.codigoNotaEntrega = codigoNotaEntrega;
-		this.documentoAcreedor = documentoAcreedor;
-		this.cuentaPagar = cuentaPagar;
 		this.fechaRecepcion = fechaRecepcion;
+		this.estatus = estatus;
 	}
 
 	public NotaEntrega(int codigoNotaEntrega,
 			DocumentoAcreedor documentoAcreedor, CuentaPagar cuentaPagar,
-			Date fechaRecepcion, Set<RecepcionMaterial> recepcionMaterials) {
+			Date fechaRecepcion, char estatus,
+			Set<RecepcionMaterial> recepcionMaterials) {
 		this.codigoNotaEntrega = codigoNotaEntrega;
 		this.documentoAcreedor = documentoAcreedor;
 		this.cuentaPagar = cuentaPagar;
 		this.fechaRecepcion = fechaRecepcion;
+		this.estatus = estatus;
 		this.recepcionMaterials = recepcionMaterials;
 	}
 
@@ -63,7 +63,7 @@ public class NotaEntrega implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "codigo_documento_acreedor", nullable = false)
+	@JoinColumn(name = "codigo_documento_acreedor")
 	public DocumentoAcreedor getDocumentoAcreedor() {
 		return this.documentoAcreedor;
 	}
@@ -73,7 +73,7 @@ public class NotaEntrega implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "origen", nullable = false)
+	@JoinColumn(name = "origen")
 	public CuentaPagar getCuentaPagar() {
 		return this.cuentaPagar;
 	}
@@ -90,6 +90,15 @@ public class NotaEntrega implements java.io.Serializable {
 
 	public void setFechaRecepcion(Date fechaRecepcion) {
 		this.fechaRecepcion = fechaRecepcion;
+	}
+
+	@Column(name = "estatus", nullable = false, length = 1)
+	public char getEstatus() {
+		return this.estatus;
+	}
+
+	public void setEstatus(char estatus) {
+		this.estatus = estatus;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "notaEntrega")

@@ -28,5 +28,10 @@ public interface IServicioDatoBasico {
 	
 	public List<DatoBasico> buscarDatosPorRelacion(DatoBasico datoBasico);
 
+	public abstract List<DatoBasico> listarTipoInstalacion();
+	
+	public abstract List<DatoBasico> listarTipoMantenimiento();
 
+
+	public abstract List<DatoBasico> listarComisiones();
 }

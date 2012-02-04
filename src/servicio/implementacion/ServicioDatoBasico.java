@@ -88,5 +88,26 @@ public class ServicioDatoBasico implements IServicioDatoBasico {
 	public List<DatoBasico> buscarDatosPorRelacion(DatoBasico datoBasico) {
 		return daoDatoBasico.buscarPorRelacion(datoBasico);
 	}
+	
+	public List<DatoBasico> buscarPadre(DatoBasico db) {
+		return daoDatoBasico.buscarPadre(db);
+	}
+	
+	@Override
+	public List<DatoBasico> listarTipoMantenimiento() {
+		return this.daoDatoBasico.listarTipoMantenimiento();
+	}
+
+	@Override
+	public List<DatoBasico> listarComisiones() {
+		// TODO Auto-generated method stub
+		return this.daoDatoBasico.listarComisiones();
+	}
+	
+	public List<DatoBasico> listarTipoInstalacion(){
+		return this.daoDatoBasico.listarTipoInstalacion();
+	}
+	
+	
 
 }

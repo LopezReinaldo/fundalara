@@ -699,7 +699,9 @@ ul.art-menu
   padding:0 !important;
 }
 .art-content-layout .art-content-layout{width: auto;margin:0;}
-.art-content-layout .art-layout-cell, .art-content-layout .art-layout-cell .art-content-layout .art-layout-cell{display: table-cell;}
+.art-content-layout .art-layout-cell, .art-content-layout .art-layout-cell .art-content-layout .art-layout-cell{
+/* 	display: table-cell; */
+	}
 .art-layout-cell .art-layout-cell{display: block;}
 .art-content-layout-row {display: table-row;}
 .art-layout-glare{position:relative;}/* end Layout */
@@ -1787,7 +1789,7 @@ h2.art-postheader img
   display:block;
   top:0;
   left:0;
-  width:100%;
+  width:0;
   height:321px;
   background-image: url('../Imagenes/sidebar_g.png');
   background-repeat: no-repeat;

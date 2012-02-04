@@ -1,12 +1,14 @@
 package servicio.implementacion;
 
+import java.util.List;
+
 import dao.general.DaoRecepcionMaterial;
 import modelo.RecepcionMaterial;
 import servicio.interfaz.IServicioRecepcionMaterial;
 
 public class ServicioRecepcionMaterial implements IServicioRecepcionMaterial {
 
-	DaoRecepcionMaterial daoRecepcionMaterial;
+DaoRecepcionMaterial daoRecepcionMaterial;
 	
 	@Override
 	public void eliminar(RecepcionMaterial rm) {
@@ -33,5 +35,18 @@ public class ServicioRecepcionMaterial implements IServicioRecepcionMaterial {
 	public void setDaoRecepcionMaterial(DaoRecepcionMaterial daoRecepcionMaterial) {
 		this.daoRecepcionMaterial = daoRecepcionMaterial;
 	}
+	
+	@Override
+	public List<RecepcionMaterial> listarMateriales() {
+		// TODO Auto-generated method stub
+		return daoRecepcionMaterial.listarmateriales();
+	}
+
+	@Override
+	public String generarCodigo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }

@@ -1,6 +1,6 @@
 package modelo;
 
-// Generated 31/12/2011 11:02:01 AM by Hibernate Tools 3.4.0.CR1
+// Generated 25/01/2012 10:43:43 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,9 +25,16 @@ public class Sesion implements java.io.Serializable {
 	private DatoBasico datoBasico;
 	private Equipo equipo;
 	private char estatus;
+	private Set<SesionEjecutada> sesionEjecutadas = new HashSet<SesionEjecutada>(
+			0);
 	private Set<ActividadPlanificada> actividadPlanificadas = new HashSet<ActividadPlanificada>(
 			0);
-	private Set<PlanRotacion> planRotacions = new HashSet<PlanRotacion>(0);
+	private Set<MaterialActividadPlanificada> materialActividadPlanificadas = new HashSet<MaterialActividadPlanificada>(
+			0);
+	private Set<InstalacionUtilizada> instalacionUtilizadas = new HashSet<InstalacionUtilizada>(
+			0);
+	private Set<ActividadCalendario> actividadCalendarios = new HashSet<ActividadCalendario>(
+			0);
 
 	public Sesion() {
 	}
@@ -43,15 +50,21 @@ public class Sesion implements java.io.Serializable {
 
 	public Sesion(int codigoSesion, PlanEntrenamiento planEntrenamiento,
 			DatoBasico datoBasico, Equipo equipo, char estatus,
+			Set<SesionEjecutada> sesionEjecutadas,
 			Set<ActividadPlanificada> actividadPlanificadas,
-			Set<PlanRotacion> planRotacions) {
+			Set<MaterialActividadPlanificada> materialActividadPlanificadas,
+			Set<InstalacionUtilizada> instalacionUtilizadas,
+			Set<ActividadCalendario> actividadCalendarios) {
 		this.codigoSesion = codigoSesion;
 		this.planEntrenamiento = planEntrenamiento;
 		this.datoBasico = datoBasico;
 		this.equipo = equipo;
 		this.estatus = estatus;
+		this.sesionEjecutadas = sesionEjecutadas;
 		this.actividadPlanificadas = actividadPlanificadas;
-		this.planRotacions = planRotacions;
+		this.materialActividadPlanificadas = materialActividadPlanificadas;
+		this.instalacionUtilizadas = instalacionUtilizadas;
+		this.actividadCalendarios = actividadCalendarios;
 	}
 
 	@Id
@@ -104,6 +117,15 @@ public class Sesion implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sesion")
+	public Set<SesionEjecutada> getSesionEjecutadas() {
+		return this.sesionEjecutadas;
+	}
+
+	public void setSesionEjecutadas(Set<SesionEjecutada> sesionEjecutadas) {
+		this.sesionEjecutadas = sesionEjecutadas;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sesion")
 	public Set<ActividadPlanificada> getActividadPlanificadas() {
 		return this.actividadPlanificadas;
 	}
@@ -114,12 +136,33 @@ public class Sesion implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sesion")
-	public Set<PlanRotacion> getPlanRotacions() {
-		return this.planRotacions;
+	public Set<MaterialActividadPlanificada> getMaterialActividadPlanificadas() {
+		return this.materialActividadPlanificadas;
 	}
 
-	public void setPlanRotacions(Set<PlanRotacion> planRotacions) {
-		this.planRotacions = planRotacions;
+	public void setMaterialActividadPlanificadas(
+			Set<MaterialActividadPlanificada> materialActividadPlanificadas) {
+		this.materialActividadPlanificadas = materialActividadPlanificadas;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sesion")
+	public Set<InstalacionUtilizada> getInstalacionUtilizadas() {
+		return this.instalacionUtilizadas;
+	}
+
+	public void setInstalacionUtilizadas(
+			Set<InstalacionUtilizada> instalacionUtilizadas) {
+		this.instalacionUtilizadas = instalacionUtilizadas;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sesion")
+	public Set<ActividadCalendario> getActividadCalendarios() {
+		return this.actividadCalendarios;
+	}
+
+	public void setActividadCalendarios(
+			Set<ActividadCalendario> actividadCalendarios) {
+		this.actividadCalendarios = actividadCalendarios;
 	}
 
 }

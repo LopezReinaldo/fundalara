@@ -1,9 +1,19 @@
 package controlador.logistica;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import modelo.DatoBasico;
 import modelo.Material;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
@@ -50,6 +60,10 @@ public class CntrlRegistrarMaterial extends GenericForwardComposer {
 	public void doAfterCompose(Component comp)throws Exception{
 		super.doAfterCompose(comp);		
 		comp.setVariable("cntrl", this, false);
+//		System.out.println("freMemory: "+(Runtime.getRuntime().freeMemory()/1024)/1024);
+//		System.out.println("maxmemory: "+(Runtime.getRuntime().maxMemory()/1024)/1024);
+//		System.out.println("totalMemory: "+(Runtime.getRuntime().totalMemory()/1024)/1024);
+		
 		clasificacionesMateriales = servicioDatoBasico.buscar(TipoDatoBasico.CLASIFICACIONES_MATERIALES);
 	}
 			
@@ -191,5 +205,22 @@ public class CntrlRegistrarMaterial extends GenericForwardComposer {
 		spExistencia.getValue();
 	}
 	
-	
+	public void onClick$btnImprimir() throws JRException{
+		 
+		JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(materiales);
+				
+		Map parameters = new HashMap();
+		parameters.put("FECHA", new java.util.Date());
+	    //JasperReport report = JasperCompileManager.compileReport("C:\\Users\\LABSI\\workspace fundalara\\fundalara\\WebContent\\Logistica\\Reportes\\ReporteListadoMateriales.jrxml");
+	    JasperReport report = JasperCompileManager.compileReport("C:\\Users\\Reinaldo López\\Documents\\workspace entrega viernes 13\\fundalara\\WebContent\\Logistica\\Reportes\\ReporteListadoMateriales.jrxml");
+	    
+	    JasperPrint print = JasperFillManager.fillReport(report, parameters, ds);
+	    
+	    // Exporta el informe a PDF
+	    //JasperExportManager.exportReportToPdfFile(print,"C:\\Users\\LABSI\\workspace fundalara\\fundalara\\WebContent\\Logistica\\Reportes\\ReporteListadoMateriales.pdf");
+	    JasperExportManager.exportReportToPdfFile(print,"C:\\Users\\Reinaldo López\\Documents\\workspace entrega viernes 13\\fundalara\\WebContent\\Logistica\\Reportes\\ReporteListadoMateriales.pdf");
+	    
+	    //Para visualizar el pdf directamente desde java
+	    JasperViewer.viewReport(print, false);
+	}
 }
