@@ -19,7 +19,7 @@ import org.hibernate.SessionFactory;
 public class SessionManager implements Filter
 {
     private static  SessionFactory sessionFactory;
-
+    private static  Session session;
     static
     {
         try
@@ -27,6 +27,8 @@ public class SessionManager implements Filter
             //Aqui creamos una session de la fabrica de session usando
             //el archivo de configuracion hibernate.cfg.xml      	
             sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            
         }
         catch (Throwable ex)
         {
@@ -47,20 +49,12 @@ public class SessionManager implements Filter
     //a un thread local, pero eso ya viene especificado en el archivo de configuracion hibernate.cfg.xml
     //<property name="hibernate.current_session_context_class">thread</property>
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-    {
-
-    	        try {
-    	        	
+    {         
+    	        
+    	        try {    	        	
 					chain.doFilter(request, response);
-					 try
-				        {      	
-						   sessionFactory.getCurrentSession().close();
-				        }
-				        catch (HibernateException ex)
-				        {
-				            throw new RuntimeException(ex);
-				        } 
-				      
+					//sessionFactory.close();		
+					session.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -78,8 +72,13 @@ public class SessionManager implements Filter
     //Para obtener una session
     public static Session getSession()
     {   
-    	sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
-        return sessionFactory.getCurrentSession();
+    	//sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();   	
+        if (session.isOpen())
+    		return session;
+        else{
+        	session = sessionFactory.openSession();
+            return session;
+        }
     }
 
 
@@ -90,8 +89,10 @@ public class SessionManager implements Filter
     {
     	 try
 	        {      	
-			   sessionFactory.close();
-
+    		 
+			   //sessionFactory.getCurrentSession().close();
+               //System.out.println("session cerrada 2");
+    		 session.close();
 	        }
 	        catch (HibernateException ex)
 	        {

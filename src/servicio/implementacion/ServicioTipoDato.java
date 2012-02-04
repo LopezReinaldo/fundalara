@@ -49,6 +49,7 @@ public class ServicioTipoDato implements IServicioTipoDato {
 		// TODO Auto-generated method stub
 		return daoTipoDato.buscarPorTipo(td);
 	}
+<<<<<<< HEAD
 
 	public List<TipoDato> buscarTrue(Boolean bool) {
 		return daoTipoDato.buscarTrue(bool);
@@ -57,6 +58,18 @@ public class ServicioTipoDato implements IServicioTipoDato {
 	public List<TipoDato> listarTipoDatos() {
 
 		return daoTipoDato.listarTipoDatos();
+=======
+	
+	@Override
+	public List<TipoDato> buscarTrue(Boolean bool) {
+		return daoTipoDato.buscarTrue(bool);
+	}
+	
+	@Override
+	public TipoDato buscarPorTipo(String td) {
+		// TODO Auto-generated method stub
+		return daoTipoDato.buscarPorTipo(td);
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	}
 
 }

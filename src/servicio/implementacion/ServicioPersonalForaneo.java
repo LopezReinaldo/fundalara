@@ -7,6 +7,7 @@ import dao.general.DaoPersonalJuego;
 
 import modelo.PersonalForaneo;
 import servicio.interfaz.IServicioPersonalForaneo;
+import modelo.DatoBasico;
 
 public class ServicioPersonalForaneo implements IServicioPersonalForaneo {
 	
@@ -42,6 +43,17 @@ public class ServicioPersonalForaneo implements IServicioPersonalForaneo {
 	public List<PersonalForaneo> listarActivos() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public List<PersonalForaneo> listarUmpires() {
+		return daoPersonalForaneo.listarUmpires();
+
+	}
+
+	@Override
+	public DatoBasico consultarDB() {
+    return daoPersonalForaneo.consultarDatoBasico();
 	}
 
 }

@@ -51,10 +51,17 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 	DatoBasico datoBasico;
 	TipoDato tipoDato;
 	List<TipoDato> listaTipoDato;
+<<<<<<< HEAD
 	List<DatoBasico> listaDatoBasico, listaDatoBasicoB, listaDatoBasicoC;
 	Boolean editar;
 	Integer index, pos;
 
+=======
+	List<DatoBasico> listaDatoBasicoA, listaDatoBasicoB, listaDatoBasicoC;
+	Boolean editar;
+	Integer index, pos;
+	
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	public List<TipoDato> getListaTipoDato() {
 		return listaTipoDato;
 	}
@@ -62,6 +69,7 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 	public void setListaTipoDato(List<TipoDato> listaTipoDato) {
 		this.listaTipoDato = listaTipoDato;
 	}
+<<<<<<< HEAD
 
 	public List<DatoBasico> getListaDatoBasico() {
 		return listaDatoBasico;
@@ -69,6 +77,33 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 
 	public void setListaDatoBasico(List<DatoBasico> listaDatoBasico) {
 		this.listaDatoBasico = listaDatoBasico;
+=======
+	
+	
+
+	public List<DatoBasico> getListaDatoBasicoA() {
+		return listaDatoBasicoA;
+	}
+
+	public void setListaDatoBasicoA(List<DatoBasico> listaDatoBasicoA) {
+		this.listaDatoBasicoA = listaDatoBasicoA;
+	}
+
+	public List<DatoBasico> getListaDatoBasicoB() {
+		return listaDatoBasicoB;
+	}
+
+	public void setListaDatoBasicoB(List<DatoBasico> listaDatoBasicoB) {
+		this.listaDatoBasicoB = listaDatoBasicoB;
+	}
+
+	public List<DatoBasico> getListaDatoBasicoC() {
+		return listaDatoBasicoC;
+	}
+
+	public void setListaDatoBasicoC(List<DatoBasico> listaDatoBasicoC) {
+		this.listaDatoBasicoC = listaDatoBasicoC;
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	}
 
 	public DatoBasico getDatoBasico() {
@@ -84,16 +119,27 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 		comp.setVariable("cntrl", this, true);				
 		datoBasico = new DatoBasico();
 		tipoDato   = new TipoDato();
+<<<<<<< HEAD
 		listaDatoBasico  = new ArrayList<DatoBasico>();
+=======
+		listaDatoBasicoA  = new ArrayList<DatoBasico>();
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 		listaDatoBasicoB = new ArrayList<DatoBasico>();
 		listaDatoBasicoC = new ArrayList<DatoBasico>();
 		inicializar();
 		listaTipoDato = servicioTipoDato.buscarTrue(true);
 		llenarComboTipoDato(listaTipoDato);
+<<<<<<< HEAD
 
 		editar = false;
 	}
 
+=======
+		
+		editar = false;
+	}
+		
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	public void onChange$cmbTipoDato(){
 		lboxDatos.getItems().clear();
 		tipoDato = (TipoDato) cmbTipoDato.getSelectedItem().getValue();	
@@ -116,11 +162,19 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 						lblDatoBasicoB.setValue(altenarMayuscula(tipoDato.getTipoDato().getTipoDato().getNombre())); 						
 						lblDatoBasicoC.setValue(altenarMayuscula(tipoDato.getTipoDato().getNombre()));
 						cmbDatoBasicoA.setDisabled(false);
+<<<<<<< HEAD
 
 						listaDatoBasico = servicioDatoBasico.buscarPorTipoDato(tipoDato.getTipoDato().getTipoDato().getTipoDato());						
 
 						if (listaDatoBasico.size() > 0) {							
 							llenarCombo(cmbDatoBasicoA, listaDatoBasico);							
+=======
+												 					       
+						listaDatoBasicoA = servicioDatoBasico.buscarPorTipoDato(tipoDato.getTipoDato().getTipoDato().getTipoDato());						
+						
+						if (listaDatoBasicoA.size() > 0) {							
+							llenarCombo(cmbDatoBasicoA, listaDatoBasicoA);							
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 						}	     				
 					}						
 				}
@@ -135,11 +189,19 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 					lblDatoBasicoA.setValue(altenarMayuscula(tipoDato.getTipoDato().getTipoDato().getNombre()));
 					lblDatoBasicoB.setValue(altenarMayuscula(tipoDato.getTipoDato().getNombre()));												
 					cmbDatoBasicoA.setDisabled(false);
+<<<<<<< HEAD
 
 					listaDatoBasico = servicioDatoBasico.buscarPorTipoDato(tipoDato.getTipoDato().getTipoDato());
 
 					if (listaDatoBasico.size() > 0) {
 						llenarCombo(cmbDatoBasicoA, listaDatoBasico);					
+=======
+																
+					listaDatoBasicoA = servicioDatoBasico.buscarPorTipoDato(tipoDato.getTipoDato().getTipoDato());
+					
+					if (listaDatoBasicoA.size() > 0) {
+						llenarCombo(cmbDatoBasicoA, listaDatoBasicoA);					
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 					}												
 				}		
 			}
@@ -150,11 +212,19 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 				lblDatoBasicoA.setVisible(true);
 				lblDatoBasicoA.setValue(altenarMayuscula(tipoDato.getTipoDato().getNombre()));
 				cmbDatoBasicoA.setDisabled(false);
+<<<<<<< HEAD
 
 				listaDatoBasico = servicioDatoBasico.buscarPorTipoDato(tipoDato.getTipoDato());												
 
 				if (listaDatoBasico.size() > 0) {
 					llenarCombo(cmbDatoBasicoA, listaDatoBasico);
+=======
+				
+				listaDatoBasicoA = servicioDatoBasico.buscarPorTipoDato(tipoDato.getTipoDato());												
+				
+				if (listaDatoBasicoA.size() > 0) {
+					llenarCombo(cmbDatoBasicoA, listaDatoBasicoA);
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 				} else {
 					alert("No existen registros de "+ lblDatoBasicoA.getValue()+ " al que le desea asociar el(la) "
 							+ altenarMayuscula(cmbTipoDato.getSelectedItem().getLabel()));
@@ -167,13 +237,23 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 			llenarListaDatos();				
 		}		
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	public void onChange$cmbDatoBasicoA(){
 		inicializarCombo(cmbDatoBasicoB);
 		inicializarCombo(cmbDatoBasicoC);
 		DatoBasico db = (DatoBasico) cmbDatoBasicoA.getSelectedItem().getValue();			
+<<<<<<< HEAD
 		listaDatoBasicoB = servicioDatoBasico.buscarPadre(db);
 
+=======
+		listaDatoBasicoB = servicioDatoBasico.buscarDatosPorRelacion(db);
+		binder.loadComponent(cmbDatoBasicoB);
+		
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 		if (listaDatoBasicoB.size() > 0) {
 			llenarCombo(cmbDatoBasicoB, listaDatoBasicoB);
 			cmbDatoBasicoB.setDisabled(false);
@@ -185,12 +265,22 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 			lboxDatos.getItems().clear();
 		}		
 	}
+<<<<<<< HEAD
 
 	public void onChange$cmbDatoBasicoB(){
 		inicializarCombo(cmbDatoBasicoC);
 		DatoBasico db = (DatoBasico) cmbDatoBasicoB.getSelectedItem().getValue();		
 		listaDatoBasicoC = servicioDatoBasico.buscarPadre(db);		
 
+=======
+		
+	public void onChange$cmbDatoBasicoB(){
+		System.out.println(cmbDatoBasicoB.getSelectedItem().getValue());
+		inicializarCombo(cmbDatoBasicoC);
+		DatoBasico db = (DatoBasico) cmbDatoBasicoB.getSelectedItem().getValue();		
+		listaDatoBasicoC = servicioDatoBasico.buscarDatosPorRelacion(db);		
+		
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 		if (listaDatoBasicoC.size() > 0) {
 			llenarCombo(cmbDatoBasicoC, listaDatoBasicoC);
 			cmbDatoBasicoC.setDisabled(false);
@@ -202,16 +292,25 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 			lboxDatos.getItems().clear();
 		}		
 	}
+<<<<<<< HEAD
 
 	public void onChange$cmbDatoBasicoC(){		
 		DatoBasico db = (DatoBasico) cmbDatoBasicoC.getSelectedItem().getValue();	
 		llenarListaDatos();
 	}
 
+=======
+		
+	public void onChange$cmbDatoBasicoC(){			
+		llenarListaDatos();
+	}
+	
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	public void llenarListaDatos(){
 		List<DatoBasico> lista = new ArrayList<DatoBasico>();;
 		lboxDatos.getItems().clear();
 		if (pos.equals(1)) {
+<<<<<<< HEAD
 			lista = servicioDatoBasico.buscarPadre((DatoBasico)cmbDatoBasicoA.getSelectedItem().getValue());
 		} else if (pos.equals(2)) {
 			lista = servicioDatoBasico.buscarPadre((DatoBasico)cmbDatoBasicoB.getSelectedItem().getValue());
@@ -221,12 +320,24 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 			lista = servicioDatoBasico.buscarPorTipoDato(tipoDato);
 		}
 
+=======
+			lista = servicioDatoBasico.buscarDatosPorRelacion((DatoBasico)cmbDatoBasicoA.getSelectedItem().getValue());
+		} else if (pos.equals(2)) {
+			lista = servicioDatoBasico.buscarDatosPorRelacion((DatoBasico)cmbDatoBasicoB.getSelectedItem().getValue());
+		} else if (pos.equals(3)) {
+			lista = servicioDatoBasico.buscarDatosPorRelacion((DatoBasico)cmbDatoBasicoC.getSelectedItem().getValue());
+		}else if (pos.equals(0)){
+			lista = servicioDatoBasico.buscarPorTipoDato(tipoDato);
+		}
+		
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 		ordenarLista(lista);	
 		for (Object o : lista) {
 			DatoBasico dato = (DatoBasico) o;
 			llenarListbox(lboxDatos,dato.getNombre(),dato.getDescripcion(),""+dato.getCodigoDatoBasico());
 		}	
 	}
+<<<<<<< HEAD
 
 	public void onClick$btnAgregar() {
 		if (cmbTipoDato.getValue().equals("--SELECCIONE--")){
@@ -300,6 +411,106 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 								}
 							}								
 		else {
+=======
+	
+	public void onClick$btnAgregar() {
+		if (cmbTipoDato.getValue().equals("--SELECCIONE--")) {
+			alert("Seleccione el Tipo de Dato que desea registrar");
+			cmbTipoDato.focus();
+		} else {
+			String nombreTipoDato = altenarMayuscula(cmbTipoDato
+					.getSelectedItem().getLabel());
+			if (!editar) {
+				if (cmbDatoBasicoA.isVisible()
+						&& cmbDatoBasicoA.getValue().equals("--SELECCIONE--")) {
+					alert("Seleccione el " + lblDatoBasicoA.getValue()
+							+ " al que le desea asociar el(la) "
+							+ nombreTipoDato);
+					cmbDatoBasicoA.focus();
+				} else if (cmbDatoBasicoB.isVisible()
+						&& cmbDatoBasicoB.getValue().equals("--SELECCIONE--")) {
+					alert("Seleccione el " + lblDatoBasicoB.getValue()
+							+ " al que le desea asociar el(la) "
+							+ nombreTipoDato);
+					cmbDatoBasicoB.focus();
+				} else if (cmbDatoBasicoC.isVisible()
+						&& cmbDatoBasicoC.getValue().equals("--SELECCIONE--")) {
+					alert("Seleccione el " + lblDatoBasicoC.getValue()
+							+ " al que le desea asociar el(la) "
+							+ nombreTipoDato);
+					cmbDatoBasicoC.focus();
+				} else if (txtNombre.getValue().isEmpty()) {
+					alert("Debe introducir el Nombre del(de la) "
+							+ nombreTipoDato + " que desea Registrar");
+					txtNombre.focus();
+				} else if (txtDescripcion.getValue().isEmpty()) {
+					txtDescripcion.setValue(" ");
+				} else {
+					int i = 0;
+					boolean repetido = false;
+					while (i < lboxDatos.getItems().size()) {
+						Listitem item = lboxDatos.getItemAtIndex(i);
+						Listcell lc = (Listcell) item.getChildren().get(0);
+						if (txtNombre.getValue().equals(lc.getLabel())) {
+							alert("El(la) " + nombreTipoDato
+									+ " ya se encuentra registrado(a)");
+							txtNombre.focus();
+							repetido = true;
+							break;
+						}
+						i++;
+					}
+					if (!repetido) {
+						datoBasico.setCodigoDatoBasico(servicioDatoBasico
+								.listar().size() + 2);
+						datoBasico.setTipoDato((TipoDato) cmbTipoDato
+								.getSelectedItem().getValue());
+						if (cmbDatoBasicoC.isVisible()) {
+							datoBasico
+									.setDatoBasico((DatoBasico) cmbDatoBasicoC
+											.getSelectedItem().getValue());
+						} else {
+							if (cmbDatoBasicoB.isVisible()) {
+								datoBasico
+										.setDatoBasico((DatoBasico) cmbDatoBasicoB
+												.getSelectedItem().getValue());
+							} else {
+								if (cmbDatoBasicoA.isVisible()) {
+									datoBasico
+											.setDatoBasico((DatoBasico) cmbDatoBasicoA
+													.getSelectedItem()
+													.getValue());
+								} else {
+									datoBasico.setDatoBasico(null);
+								}
+							}
+						}
+						datoBasico
+								.setNombre(txtNombre.getValue().toUpperCase());
+						datoBasico.setDescripcion(txtDescripcion.getValue()
+								.toUpperCase());
+						datoBasico.setEstatus('A');
+						
+						llenarListbox(lboxDatos, (String) txtNombre.getValue()
+								.toUpperCase(), (String) txtDescripcion
+								.getValue().toUpperCase(), ""
+								+ datoBasico);
+						
+						txtNombre.setValue("");
+						txtDescripcion.setValue("");
+						servicioDatoBasico.agregar(datoBasico);
+						llenarListaDatos();
+						try {
+							Messagebox.show("El(la) " + nombreTipoDato
+									+ " ha sido guardado con Exito");
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						binder.loadAll();
+					}
+				}
+			} else {
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 
 				int i = 0;
 				boolean repetido = false;
@@ -309,9 +520,17 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 				while (i < lboxDatos.getItems().size()) {
 					Listitem item = lboxDatos.getItemAtIndex(i);
 					Listcell lcA = (Listcell) item.getChildren().get(0);
+<<<<<<< HEAD
 					if (txtNombre.getValue().toUpperCase().equals(lcA.getLabel())) {
 						if (txtNombre.getValue().toUpperCase() != nombre) {
 							alert("El(la) " + nombreTipoDato + " ya se encuentra registradoq(a)");
+=======
+					if (txtNombre.getValue().toUpperCase()
+							.equals(lcA.getLabel())) {
+						if (txtNombre.getValue().toUpperCase() != nombre) {
+							alert("El(la) " + nombreTipoDato
+									+ " ya se encuentra registradoq(a)");
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 							txtNombre.focus();
 							repetido = true;
 							break;
@@ -321,6 +540,7 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 				}
 
 				if (txtNombre.getValue().isEmpty()) {
+<<<<<<< HEAD
 					alert("Debe introducir el Nombre del(de la) "+ nombreTipoDato+ " que desea Registrar");
 					txtNombre.focus();
 				} else if (txtDescripcion.getValue().isEmpty()) {
@@ -330,11 +550,23 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 				} else if (!repetido) {
 					datoBasico.setNombre(txtNombre.getValue().toUpperCase());
 					datoBasico.setDescripcion(txtDescripcion.getValue().toUpperCase());
+=======
+					alert("Debe introducir el Nombre del(de la) "
+							+ nombreTipoDato + " que desea Registrar");
+					txtNombre.focus();
+				} else if (txtDescripcion.getValue().isEmpty()) {
+					txtDescripcion.setValue(" ");
+				} else if (!repetido) {
+					datoBasico.setNombre(txtNombre.getValue().toUpperCase());
+					datoBasico.setDescripcion(txtDescripcion.getValue()
+							.toUpperCase());
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 					servicioDatoBasico.actualizar(datoBasico);
 					lboxDatos.removeItemAt(index);
 					llenarListaDatos();
 					txtNombre.setValue("");
 					txtDescripcion.setValue("");
+<<<<<<< HEAD
 					alert("El(la) " + nombreTipoDato + " se ha actualizado con exito");
 					editar = false;
 				}
@@ -342,6 +574,16 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 		}							
 	}
 
+=======
+					alert("El(la) " + nombreTipoDato
+							+ " se ha actualizado con exito");
+					editar = false;
+				}
+			}
+		}
+	}
+	
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	public void onClick$btnQuitar() {		
 		if (lboxDatos.getItems().size() != 0) {		
 			datoBasico.setEstatus('E');			
@@ -354,7 +596,11 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 			binder.loadAll();
 		}
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 
 	public void onClick$btnCancelar() {
 		inicializar();
@@ -368,7 +614,11 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 
 	public void onSelect$lboxDatos() {
 		editar=true;
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 		datoBasico = servicioDatoBasico.buscarPorCodigo(Integer.valueOf(lboxDatos.getSelectedItem().getValue()+"")); 
 		if (lboxDatos.getSelectedItem().getIndex() >= 0) {
 			Listcell lc1 = (Listcell) lboxDatos.getSelectedItem().getChildren()
@@ -381,6 +631,7 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 		}
 		index = lboxDatos.getSelectedIndex();
 	}
+<<<<<<< HEAD
 
 
 
@@ -388,6 +639,15 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 		Collections.sort(lista, new Comparator<Object>() {
 			public int compare(Object obj1, Object obj2) {  
 
+=======
+	
+	
+	
+	public static void ordenarLista(List lista) {
+		Collections.sort(lista, new Comparator<Object>() {
+			public int compare(Object obj1, Object obj2) {  
+			      
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 				Class clase = obj1.getClass();
 				String getter = "get"
 						+ Character.toUpperCase("nombre".charAt(0))
@@ -418,9 +678,15 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 			}
 		});
 	}
+<<<<<<< HEAD
 
 
 
+=======
+		   
+		   
+		
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	public void llenarComboTipoDato(List<TipoDato> lista){
 		if (lista.size() > 0) {							
 			ordenarLista(lista);
@@ -433,7 +699,11 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 			}								
 		}	
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	public void llenarCombo(Combobox combo, List lista){
 		ordenarLista(lista);
 		for (Object o : lista) {
@@ -444,14 +714,24 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 			combo.appendChild(item);
 		}		
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	public void inicializarCombo(Combobox combo){
 		combo.getItems().clear();
 		combo.setValue("--SELECCIONE--");
 		combo.setDisabled(true);	
+<<<<<<< HEAD
 
 	}
 
+=======
+		
+	}
+	
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	public void llenarListbox(Listbox list, String txtA, String txtB, String txtC) {
 		Listitem nvoItem = new Listitem();
 		nvoItem.appendChild(new Listcell(txtA));
@@ -460,13 +740,21 @@ public class CntrlDatosBasicos extends GenericForwardComposer {
 		nvoItem.setHeight("25px");
 		list.appendChild(nvoItem);	
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	public String altenarMayuscula(String variable){
 		String nombre = variable.toLowerCase().substring(0, 1).toUpperCase()
 				      + variable.toLowerCase().substring(1, variable.length());
 		return nombre;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 	public void inicializar(){
 		rowB.setVisible(false);
 		inicializarCombo(cmbDatoBasicoA);

@@ -9,12 +9,14 @@ import modelo.Juego;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 
 import comun.EstadoCompetencia;
 
 import dao.generico.GenericDao;
+import dao.generico.SessionManager;
 
 /** 
  * DAO para la clase Competencia 
@@ -42,7 +44,8 @@ public class DaoCompetencia extends GenericDao {
 		 * Competencia.
 		 * 
 		 */
-		Session session = getSession();                         
+		//Session session = getSession();                         
+		Session session = SessionManager.getSession();
 		Transaction tx = session.beginTransaction();   
 		
 		Criteria c = session.createCriteria(DatoBasico.class);	
@@ -57,6 +60,33 @@ public class DaoCompetencia extends GenericDao {
 		return c.list();
 			
 	}
+	
+	public List<Competencia> listarRegistradasAperturadas() {
+
+		Session session = getSession();
+		Transaction tx = session.beginTransaction();
+
+		Criteria c = session.createCriteria(DatoBasico.class);
+
+		c.add(Restrictions.eq("codigoDatoBasico", EstadoCompetencia.REGISTRADA));
+		DatoBasico dbr = (DatoBasico) c.list().get(0);
+
+		c = session.createCriteria(DatoBasico.class);
+		c.add(Restrictions.eq("codigoDatoBasico", EstadoCompetencia.APERTURADA));
+		DatoBasico dba = (DatoBasico) c.list().get(0);
+
+		Criteria q = session.createCriteria(Competencia.class);
+		Criterion cr1 = Restrictions.eq("datoBasicoByCodigoEstadoCompetencia",
+				dbr);
+		Criterion cr2 = Restrictions.eq("datoBasicoByCodigoEstadoCompetencia",
+				dba);
+		q.add(Restrictions.or(cr1, cr2));
+
+		return q.list();
+
+	}
+
+	
 	
 
 }

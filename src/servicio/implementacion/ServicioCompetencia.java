@@ -16,15 +16,25 @@ public class ServicioCompetencia implements IServicioCompetencia {
 	@Override
 	public void eliminar(Competencia c) {
 		// TODO Auto-generated method stub
-
+		c.setEstatus('E');
+		daoCompetencia.eliminar(c);
 	}
 
 	@Override
 	public void agregar(Competencia c) {
 		// TODO Auto-generated method stub
+		if (c.getCodigoCompetencia()==0){
+			int cod = daoCompetencia.listar(Competencia.class).size()+1;
+			c.setCodigoCompetencia(cod);
+			c.setEstatus('A');
+		}
+		daoCompetencia.guardar(c);		
 
 	}
 
+	@Override
+	public int obtenerCodigoCompetencia(){ return daoCompetencia.listar(Competencia.class).size();}	
+	
 	@Override
 	public List<Competencia> listar() {
 		return daoCompetencia.listar(Competencia.class);
@@ -49,5 +59,9 @@ public class ServicioCompetencia implements IServicioCompetencia {
 		return daoCompetencia.listarPorEstatus(estatus);
 	}
 
-	
+	@Override
+	public List<Competencia> listarRegistradasAperturadas() {
+		return daoCompetencia.listarRegistradasAperturadas();
+	}
+
 }

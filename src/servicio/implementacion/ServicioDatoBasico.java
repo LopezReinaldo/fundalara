@@ -68,6 +68,7 @@ public class ServicioDatoBasico implements IServicioDatoBasico {
 		return daoDatoBasico.listarPorPadre(s,i);
 		}
 
+
 	@Override
 	public DatoBasico buscarPorCodigo(String td) {
 		// TODO Auto-generated method stub
@@ -75,8 +76,30 @@ public class ServicioDatoBasico implements IServicioDatoBasico {
 	}
 
 	@Override
+	public List<DatoBasico> listarEstados() {
+		return daoDatoBasico.listarEstados();		
+	}	
+	
+	@Override
 	public List<DatoBasico> listarParroquias() {
 		return daoDatoBasico.listarParroquias();
+	}
+	
+	
+	
+	@Override
+	public List<DatoBasico> listarMunicipios() {
+		return daoDatoBasico.listarMunicipios();		
+	}
+	
+	@Override
+	public List<DatoBasico> listarMunicipiosPorEstados(DatoBasico db) {
+		return daoDatoBasico.listarMunicipiosPorEstados(db);		
+	}
+
+	@Override
+	public List<DatoBasico> listarParroquiasPorMunicipios(DatoBasico db) {
+		return daoDatoBasico.listarParroquiasPorMunicipios(db);		
 	}
 
 	@Override
@@ -89,6 +112,7 @@ public class ServicioDatoBasico implements IServicioDatoBasico {
 		return daoDatoBasico.buscarPorRelacion(datoBasico);
 	}
 	
+<<<<<<< HEAD
 	public List<DatoBasico> buscarPadre(DatoBasico db) {
 		return daoDatoBasico.buscarPadre(db);
 	}
@@ -109,5 +133,47 @@ public class ServicioDatoBasico implements IServicioDatoBasico {
 	}
 	
 	
+=======
+	public DatoBasico buscarPorString(String s){
+		return daoDatoBasico.buscarPorString(s);
+	}
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 
+	
+	@Override
+	public DatoBasico buscarTipo(TipoDatoBasico tipoDato, String nombre) {
+		return daoDatoBasico.buscarTipo(tipoDato, nombre);
+	}
+	
+	@Override 
+	public List<DatoBasico> listarOrganizacionCompetencia() {
+		return daoDatoBasico.listarOrganizacionCompetencia();		
+	}
+	
+	@Override
+	public List<DatoBasico> listarPosiciones() {
+		return daoDatoBasico.listarPosiciones();
+	}
+
+	@Override
+	public List<DatoBasico> listarPosicionesJugadores() {
+		return daoDatoBasico.listarPosicionesJugadores();
+	}
+
+	@Override
+	public List<DatoBasico> listarTipoCompetencia() {
+		return daoDatoBasico.listarTipoCompetencia();
+	}
+
+	@Override
+	public List<DatoBasico> listarCondicion() {
+		return daoDatoBasico.listarCondicion();
+	}
+
+	@Override
+	public List<DatoBasico> listarTipoDato(String nombre) {
+		// TODO Auto-generated method stub
+		return daoDatoBasico.listarTipoDato(nombre);
+	}
+	
 }

@@ -27,7 +27,12 @@
 				</row>				
 				<row height="30px" id="rowB">
 					<label id="lblDatoBasicoB" value="Tipo de Dato " width="150px" />
+<<<<<<< HEAD
 					<combobox value="--SELECCIONE--" width="170px"
+=======
+					
+					<combobox value="--SELECCIONE--" width="170px"					
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 						id="cmbDatoBasicoB" autodrop="true" autocomplete="true">					
 					</combobox>
 					<label id="lblDatoBasicoC" value="Tipo de Dato " width="140px" />
@@ -38,7 +43,11 @@
 				<row>
 					<label value="Nombre" width="140px" />
 					<textbox id="txtNombre" width="180px" />
+<<<<<<< HEAD
 					<label value="Descripcion" />
+=======
+					<label value="Descripción" />
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118
 					<textbox id="txtDescripcion" width="180px"
 						multiline="true" rows="1" />
 				</row>
@@ -73,4 +82,8 @@
 				label="Salir" width="100px" />
 		</div>
 	</window>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 8f481b99d9d0e3c8f37c34b5688d08ccc5f6c118

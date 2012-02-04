@@ -64,5 +64,9 @@ public class ServicioPersonaNatural implements IServicoPersonaNatural {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public  PersonaNatural  buscarPersonaNatural(String d){		
+		return daoPersonaNatural.buscarPersonaNatural(d);
+	}
 
 }

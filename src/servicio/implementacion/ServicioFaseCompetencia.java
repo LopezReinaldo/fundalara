@@ -1,11 +1,14 @@
 package servicio.implementacion;
 
+import java.util.Iterator;
 import java.util.List;
 
 import servicio.interfaz.IServicioFaseCompetencia;
 
 import dao.general.DaoFaseCompetencia;
 
+import modelo.CategoriaCompetencia;
+import modelo.CategoriaCompetenciaId;
 import modelo.Competencia;
 import modelo.FaseCompetencia;
 
@@ -30,10 +33,27 @@ public class ServicioFaseCompetencia implements IServicioFaseCompetencia {
 	}
 
 	@Override
-	public void agregar(FaseCompetencia fc) {
+	public void agregar(List<FaseCompetencia> lista,int comp) {
 		// TODO Auto-generated method stub
+		
+		for (Iterator i= lista.iterator(); i.hasNext();){
+			FaseCompetencia id = (FaseCompetencia) i.next();
+			
+			id.getCompetencia().setCodigoCompetencia(comp);
+			id.setEstatus('A');
+				
+//			FaseCompetenciaId faseID= new FaseCompetenciaId();
+//			faseID.setCodigoCompetencia(comp);
+
+			id.getId().setCodigoCompetencia(comp);
+//			id.setId(faseID);
+			
+			daoFaseCompetencia.guardar(id);		
+	    }
+		
 
 	}
+
 
 	/*@Override
 	public void actualizar(FaseCompetencia fc) {
@@ -57,4 +77,8 @@ public class ServicioFaseCompetencia implements IServicioFaseCompetencia {
 		return null;
 	}
 
+	@Override
+	public FaseCompetencia EquiposRegistrados(Competencia competencia) {
+		return daoFaseCompetencia.EquiposRegistrados(competencia);
+}
 }
